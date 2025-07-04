@@ -12,6 +12,11 @@ A React renderer for [Figma](https://www.figma.com). Use React components as a s
 * 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/).
 * ♻️ Hydration and [HMR](https://webpack.js.org/concepts/hot-module-replacement/) support.
 
+
+* 🍬Compatible with [react-native](https://facebook.github.io/react-native/), [react-sketchapp](https://github.com/airbnb/react-sketchapp) API.
+* 🎨 Designed to create manageable design systems.
+* 🦄 Flexible layouts support with [Yoga Layout](https://yogalayout.com/)
+* ♻️ Hydration support.
 * ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
 * 🚫 **Is not a code generator**.
 
