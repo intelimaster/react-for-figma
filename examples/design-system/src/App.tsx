@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { Frame, Page, View, Text, Component, StyleSheet } from '../../../src';
+import { Frame, Page, View, Text, Component, StyleSheet } from 'react-figma';
 
 import * as facebookIcon from './icons/001-facebook.png';
 import * as twitterIcon from './icons/002-twitter.png';
@@ -7,7 +7,6 @@ import * as whatsappIcon from './icons/003-whatsapp.png';
 import * as skypeIcon from './icons/006-skype.png';
 import * as youtubeIcon from './icons/008-youtube.png';
 import * as instagramIcon from './icons/011-instagram.png';
-import { ResizeMode } from '../../../src/styleTransformers/transformGeometryStyleProperties';
 
 const styles = StyleSheet.create({
     frame: {
@@ -23,7 +22,7 @@ const styles = StyleSheet.create({
         width: 16,
         height: 16,
         backgroundColor: '#ffffff',
-        backgroundSize: 'contain' as ResizeMode
+        backgroundSize: 'contain'
     },
     sizingDescription: {
         fontSize: 8,
@@ -37,7 +36,7 @@ const styles = StyleSheet.create({
     heading: {
         fontFamily: 'Helvetica Neue',
         fontWeight: 'bold',
-        fontStyle: 'italic' as any,
+        fontStyle: 'italic',
         fontSize: 14
     }
 });
@@ -86,37 +85,37 @@ const TypeFrame = props => {
             <Text style={styles.heading}>Type</Text>
 
             <Component name="HeaderH1" style={styles.component}>
-                <Text style={{ fontSize: 64 }}>Header 1</Text>
+                <Text style={{ fontSize: 64, color: '#000000' }}>Header 1</Text>
             </Component>
             <Text style={styles.hint}>64px</Text>
 
             <Component name="HeaderH2" style={styles.component}>
-                <Text style={{ fontSize: 44 }}>Header 2</Text>
+                <Text style={{ fontSize: 44, color: '#000000' }}>Header 2</Text>
             </Component>
             <Text style={styles.hint}>44px</Text>
 
             <Component name="HeaderH3" style={styles.component}>
-                <Text style={{ fontSize: 24 }}>Heading 3</Text>
+                <Text style={{ fontSize: 24, color: '#000000' }}>Heading 3</Text>
             </Component>
             <Text style={styles.hint}>24px</Text>
 
             <Component name="HeaderH4" style={styles.component}>
-                <Text style={{ fontSize: 16 }}>HEADER 4</Text>
+                <Text style={{ fontSize: 16, color: '#000000' }}>HEADER 4</Text>
             </Component>
             <Text style={styles.hint}>16px</Text>
 
             <Component name="RegularText" style={styles.component}>
-                <Text style={{ fontSize: 16 }}>Regular text</Text>
+                <Text style={{ fontSize: 16, color: '#000000' }}>Regular text</Text>
             </Component>
             <Text style={styles.hint}>16px</Text>
 
             <Component name="SmallText" style={styles.component}>
-                <Text style={{ fontSize: 14 }}>Small text</Text>
+                <Text style={{ fontSize: 14, color: '#000000' }}>Small text</Text>
             </Component>
             <Text style={styles.hint}>14px</Text>
 
             <Component name="XSmallText" style={styles.component}>
-                <Text style={{ fontSize: 11 }}>X-Small text</Text>
+                <Text style={{ fontSize: 11, color: '#000000' }}>X-Small text</Text>
             </Component>
             <Text style={styles.hint}>11px</Text>
         </Frame>
