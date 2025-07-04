@@ -11,6 +11,7 @@ import { VectorProps } from '../components/vector/Vector';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { constraintsMixin } from '../mixins/constraintsMixin';
 
+
 const vectorNodePropsAssign = propsAssign<VectorProps, VectorProps>([
     'vectorPaths',
     'vectorNetwork',

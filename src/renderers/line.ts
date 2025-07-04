@@ -20,5 +20,6 @@ export const line = (node: RectangleNode) => (props: LineProps) => {
     sceneNodeMixin(lineNode)(props);
     constraintsMixin(lineNode)(props);
 
+
     return lineNode;
 };

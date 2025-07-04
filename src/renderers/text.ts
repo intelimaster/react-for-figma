@@ -9,10 +9,12 @@ import { blendMixin } from '../mixins/blendMixin';
 import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+
 import { uiApi } from '../rpc';
 import { safeGetPluginData } from '../helpers/safeGetPluginData';
 import { constraintsMixin } from '../mixins/constraintsMixin';
 import { DEFAULT_FONT } from '../helpers/constants';
+
 
 const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     [
@@ -59,6 +61,7 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     blendMixin(textNode)(props);
     sceneNodeMixin(textNode)(props);
     constraintsMixin(textNode)(props);
+
 
     const { loadedFont, fontName = defaultFont } = props;
     if (

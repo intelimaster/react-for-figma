@@ -126,7 +126,9 @@ export interface SceneNodeProps {
 export interface DefaultShapeProps
     extends BaseNodeProps,
         LayoutProps,
+
         ConstraintsProps,
+
         GeometryProps,
         ExportProps,
         BlendProps,

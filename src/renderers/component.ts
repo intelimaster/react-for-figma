@@ -6,6 +6,7 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
+
 import { cornerMixin } from '../mixins/cornerMixin';
 import { rectangleCornerMixin } from '../mixins/rectangleCornerMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
@@ -27,6 +28,7 @@ export const component = (node: ComponentNode) => (props: ComponentProps) => {
     rectangleCornerMixin(componentNode)(props);
     constraintsMixin(componentNode)(props);
     autoLayoutMixin(componentNode)(props);
+    sceneNodeMixin(componentNode)(props);
 
     frameMixin(componentNode)(props);
     frameSpecificProps(componentNode)(props);
