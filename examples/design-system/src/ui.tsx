@@ -1,6 +1,7 @@
-import * as yoga from 'yoga-layout-prebuilt';
-import { uiWorker } from '../../../src';
+import * as React from 'react';
+import { App } from './App';
 
-onmessage = event => {
-    uiWorker({ yoga })(event);
-};
+import 'react-figma/rpc';
+import { render } from 'react-figma';
+
+render(<App />);

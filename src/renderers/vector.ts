@@ -2,20 +2,24 @@ import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { geometryMixin } from '../mixins/geometryMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
-import { refMixin } from '../mixins/refMixin';
 import { cornerMixin } from '../mixins/cornerMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 
 import { propsAssign } from '../helpers/propsAssign';
 import { VectorProps } from '../components/vector/Vector';
+import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { constraintsMixin } from '../mixins/constraintsMixin';
 
-const vectorNodePropsAssign = propsAssign<VectorProps>(['vectorPaths', 'vectorNetwork', 'handleMirroring']);
+const vectorNodePropsAssign = propsAssign<VectorProps, VectorProps>([
+    'vectorPaths',
+    'vectorNetwork',
+    'handleMirroring'
+]);
 
 export const vector = (node: VectorNode) => (props: VectorProps) => {
-    const vectorNode = node || figma.createVector();
+    const vectorNode = node || props.node || figma.createVector();
 
-    refMixin(vectorNode)(props);
     baseNodeMixin(vectorNode)(props);
     saveStyleMixin(vectorNode)(props);
     layoutMixin(vectorNode)(props);
@@ -24,6 +28,8 @@ export const vector = (node: VectorNode) => (props: VectorProps) => {
     exportMixin(vectorNode)(props);
     blendMixin(vectorNode)(props);
     vectorNodePropsAssign(vectorNode)(props);
+    sceneNodeMixin(vectorNode)(props);
+    constraintsMixin(vectorNode)(props);
 
     return vectorNode;
 };

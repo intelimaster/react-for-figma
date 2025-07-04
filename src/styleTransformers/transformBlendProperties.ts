@@ -1,5 +1,5 @@
 import { BlendProps, Color } from '../types';
-import { colorToRGBA } from './transformColors';
+import { transformBlurToEffect } from './transformBlurToEffect';
 import { transformShadowToEffect } from './transformShadowToEffect';
 
 export type CSSBlendMode =
@@ -20,16 +20,29 @@ export type CSSBlendMode =
     | 'color'
     | 'luminosity';
 
-export interface BlendStyleProperties {
-    opacity?: number;
-    blendMode?: CSSBlendMode;
-    shadowColor?: Color;
-    shadowOffset?: { width: number; height: number };
-    shadowOpacity?: number;
-    shadowRadius?: number;
+export interface BlurProperties {
+    blurRadius?: number;
+    blurType?: 'LAYER_BLUR' | 'BACKGROUND_BLUR';
 }
 
-const transofrmBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
+export interface ShadowProperties {
+    shadowColor: Color;
+    shadowOffset?: { width: number; height: number };
+    shadowOpacity: number;
+    shadowRadius?: number;
+    shadowSpread?: number;
+    shadowType?: 'DROP_SHADOW' | 'INNER_SHADOW';
+}
+
+export interface BlendStyleProperties extends ShadowProperties, BlurProperties {
+    opacity: number;
+    blendMode: CSSBlendMode;
+    shadows?: ShadowProperties[];
+    blurs?: BlurProperties[];
+    effectStyleId?: string;
+}
+
+const transformBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
     /**
      * TODO: Missing modes - PASS_THROUGH, LINEAR_BURN, LINEAR_DODGE
      */
@@ -71,7 +84,9 @@ const transofrmBlendMode = (cssBlendMode: CSSBlendMode): BlendMode => {
     }
 };
 
-export const transformBlendProperties = (styles?: BlendStyleProperties): BlendProps => {
+export const transformBlendProperties = (
+    styles?: Partial<BlendStyleProperties> & { effectStyleId?: string }
+): BlendProps => {
     if (!styles) {
         return {};
     }
@@ -82,12 +97,22 @@ export const transformBlendProperties = (styles?: BlendStyleProperties): BlendPr
         blendProps.opacity = styles.opacity;
     }
     if (styles.blendMode) {
-        blendProps.blendMode = transofrmBlendMode(styles.blendMode);
+        blendProps.blendMode = transformBlendMode(styles.blendMode);
     }
 
-    if (styles.shadowColor) {
-        blendProps.effects = [transformShadowToEffect(styles)];
+    if (styles.shadowColor || styles.shadows) {
+        blendProps.effects = [
+            ...(blendProps.effects != null ? blendProps.effects : []),
+            ...transformShadowToEffect(styles)
+        ];
     }
 
-    return blendProps;
+    if (styles.blurRadius || styles.blurs) {
+        blendProps.effects = [
+            ...(blendProps.effects != null ? blendProps.effects : []),
+            ...transformBlurToEffect(styles)
+        ];
+    }
+
+    return { ...blendProps, ...((styles.effectStyleId && { effectStyleId: styles.effectStyleId }) || {}) };
 };
