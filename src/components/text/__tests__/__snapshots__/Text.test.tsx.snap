@@ -1,7 +1,80 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`<Text /> Text got full width when display: block (wrapped to array) 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "display": "block",
+      "minWidth": "100%",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text got full width when display: block 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "display": "block",
+      "minWidth": "100%",
+    }
+  }
+/>
+`;
+
 exports[`<Text /> Text with fontFamily 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -24,6 +97,19 @@ exports[`<Text /> Text with fontFamily 1`] = `
 
 exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -47,6 +133,19 @@ exports[`<Text /> Text with fontFamily, fontWeight 1`] = `
 
 exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
   fontName={
     Object {
       "family": "Helvetica",
@@ -69,13 +168,88 @@ exports[`<Text /> Text with fontFamily, fontWeight, fontStyle 1`] = `
 />
 `;
 
-exports[`<Text /> Text without props 1`] = `
+exports[`<Text /> Text with maxWidth 1`] = `
 <text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  hasDefinedWidth="100%"
   innerRef={
     Object {
       "current": undefined,
     }
   }
   loadedFont={null}
+  style={
+    Object {
+      "maxWidth": "100%",
+    }
+  }
+/>
+`;
+
+exports[`<Text /> Text with width 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  hasDefinedWidth={200}
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={
+    Object {
+      "width": 200,
+    }
+  }
+  width={200}
+/>
+`;
+
+exports[`<Text /> Text without props 1`] = `
+<text
+  fills={
+    Array [
+      Object {
+        "color": Object {
+          "b": 0,
+          "g": 0,
+          "r": 0,
+        },
+        "opacity": 1,
+        "type": "SOLID",
+      },
+    ]
+  }
+  innerRef={
+    Object {
+      "current": undefined,
+    }
+  }
+  loadedFont={null}
+  style={Object {}}
 />
 `;

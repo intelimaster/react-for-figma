@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps, StyleOf, TextNodeProps } from '../../types';
+import {
+    CornerProps,
+    DefaultShapeProps,
+    InstanceItemProps,
+    SelectionEventProps,
+    StyleOf,
+    TextNodeProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,16 +21,45 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useFontName } from '../../hooks/useFontName';
 import { useTextChildren } from '../../hooks/useTextChildren';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useInheritStyle } from '../../hooks/useInheritStyle';
 
-export interface TextProps extends TextNodeProps, DefaultShapeProps {
-    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties>;
-    children?: string;
+export interface TextProps
+    extends TextNodeProps,
+        DefaultShapeProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
+    style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & TextStyleProperties & BlendStyleProperties> | void;
+    children?: React.ReactText | React.ReactText[];
+    node?: any;
+    preventResizing?: boolean;
 }
 
-export const Text: React.FC<TextProps> = props => {
+const normalizeTextNodeChidren = children => {
+    return Array.isArray(children) ? children.join('') : children;
+};
+
+const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+    const inheritedStyle = useInheritStyle();
+    const flattenOriginalStyle = StyleSheet.flatten(props.style);
+
+    const style = {
+        ...(process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED ? inheritedStyle : {}),
+        ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED &&
+        props.style &&
+        (flattenOriginalStyle as any).display === 'block'
+            ? { minWidth: '100%' }
+            : {}),
+        ...StyleSheet.flatten(flattenOriginalStyle),
+        ...transformAutoLayoutToYoga(props)
+    };
+    const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
 
@@ -32,11 +68,25 @@ export const Text: React.FC<TextProps> = props => {
         ...transformTextStyleProperties(style),
         ...transformBlendProperties(style),
         ...props,
-        characters: charactersByChildren || props.characters
+        characters: charactersByChildren || props.characters,
+        ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
+        style,
+        children
     };
-    // @ts-ignore
+    const hasDefinedWidth = textProps.width || style.maxWidth;
     const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
-    const yogaProps = useYogaLayout({ nodeRef, ...textProps });
-    // @ts-ignore
-    return <text {...textProps} {...yogaProps} loadedFont={loadedFont} innerRef={nodeRef} />;
+    const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
+    useOnLayoutHandler(yogaProps, props);
+
+    return (
+        <text
+            {...textProps}
+            {...yogaProps}
+            hasDefinedWidth={hasDefinedWidth}
+            loadedFont={loadedFont}
+            innerRef={nodeRef}
+        />
+    );
 };
+
+export { Text };

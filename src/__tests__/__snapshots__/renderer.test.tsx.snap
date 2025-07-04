@@ -3,13 +3,32 @@
 exports[`renderer Groups inserting 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        ChildrenMixinStub {
+        ExportMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
           "children": Array [
-            ChildrenMixinStub {
+            LayoutMixinStub {
+              "backgrounds": Array [],
+              "blendMode": "NORMAL",
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -17,29 +36,67 @@ ChildrenMixinStub {
                         "g": 0.32941176470588235,
                         "r": 0,
                       },
+                      "opacity": 1,
                       "type": "SOLID",
                     },
                   ],
                   "height": 100,
+                  "id": "1:2",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
                     "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0054ff\\"}",
                   },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
                   "type": "RECTANGLE",
+                  "visible": true,
                   "width": 200,
+                  "x": 0,
+                  "y": 0,
                 },
               ],
+              "effects": Array [],
+              "exportSettings": Array [],
+              "height": 100,
+              "id": "1:4",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "visible": true,
+              "width": 200,
+              "x": 0,
+              "y": 0,
             },
-            ChildrenMixinStub {
+            LayoutMixinStub {
+              "backgrounds": Array [],
+              "blendMode": "NORMAL",
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -47,29 +104,61 @@ ChildrenMixinStub {
                         "g": 0,
                         "r": 1,
                       },
+                      "opacity": 1,
                       "type": "SOLID",
                     },
                   ],
                   "height": 100,
+                  "id": "2:10",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
                     "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff0017\\"}",
                   },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
                   "type": "RECTANGLE",
+                  "visible": true,
                   "width": 200,
                 },
               ],
+              "effects": Array [],
+              "exportSettings": Array [],
+              "id": "2:12",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "visible": true,
             },
-            ChildrenMixinStub {
+            LayoutMixinStub {
+              "backgrounds": Array [],
+              "blendMode": "NORMAL",
               "children": Array [
-                LayoutMixinStub {
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
                   "fills": Array [
                     Object {
                       "color": Object {
@@ -77,39 +166,342 @@ ChildrenMixinStub {
                         "g": 1,
                         "r": 0.07058823529411765,
                       },
+                      "opacity": 1,
                       "type": "SOLID",
                     },
                   ],
                   "height": 100,
+                  "id": "1:5",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
                   "parent": [Circular],
                   "pluginData": Object {
                     "isReactFigmaNode": "true",
                     "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
                   },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
                   "type": "RECTANGLE",
+                  "visible": true,
                   "width": 200,
+                  "x": 0,
+                  "y": 0,
                 },
               ],
+              "effects": Array [],
+              "exportSettings": Array [],
+              "height": 100,
+              "id": "1:7",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{}",
               },
               "type": "GROUP",
+              "visible": true,
+              "width": 200,
+              "x": 0,
+              "y": 100,
             },
           ],
+          "clipsContent": false,
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [],
+          "guides": Array [],
+          "height": 200,
+          "id": "1:8",
+          "isMask": false,
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrids": Array [],
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "FRAME",
+          "visible": true,
+          "width": 200,
+          "x": 0,
+          "y": 0,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Removing nodes at runtime 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Svg hydration 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "id": "2:5",
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "-2021876873",
+          },
+          "type": "FRAME",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Svg instance updating 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "id": "2:5",
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "-2021876873",
+          },
+          "type": "FRAME",
+          "visible": true,
+          "x": 0,
+          "y": 0,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer Svg render 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        ExportMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "type": "SOLID",
+                },
+              ],
+              "id": "1:2",
+              "parent": [Circular],
+              "type": "RECTANGLE",
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+            "svgHash": "820074599",
+          },
+          "type": "FRAME",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -117,22 +509,80 @@ ChildrenMixinStub {
 exports[`renderer Text characters applied 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "some text",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
           "type": "TEXT",
+          "visible": true,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -140,22 +590,80 @@ ChildrenMixinStub {
 exports[`renderer Text component supported text instance children 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "Some text",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
           "type": "TEXT",
+          "visible": true,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -163,22 +671,82 @@ ChildrenMixinStub {
 exports[`renderer Text instance hydration 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "Some text 2",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
           "type": "TEXT",
+          "visible": true,
+          "x": 0,
+          "y": 0,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -186,22 +754,82 @@ ChildrenMixinStub {
 exports[`renderer Text instance updating 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "text 2",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
           "type": "TEXT",
+          "visible": true,
+          "x": 0,
+          "y": 0,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -209,131 +837,75 @@ ChildrenMixinStub {
 exports[`renderer Text with custom font applied 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
           "_characters": "some text",
           "_fontName": Object {
             "family": "Helvetica",
             "style": "Bold",
           },
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"fontFamily\\":\\"Helvetica\\",\\"fontWeight\\":\\"bold\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
           "type": "TEXT",
+          "visible": true,
         },
       ],
-      "parent": [Circular],
-      "type": "PAGE",
-    },
-  ],
-  "type": "DOCUMENT",
-}
-`;
-
-exports[`renderer creates nested groups 1`] = `
-ChildrenMixinStub {
-  "children": Array [
-    ChildrenMixinStub {
-      "children": Array [],
-      "parent": [Circular],
-      "type": "PAGE",
-    },
-    ChildrenMixinStub {
-      "children": Array [
-        ChildrenMixinStub {
-          "children": Array [
-            ChildrenMixinStub {
-              "children": Array [
-                LayoutMixinStub {
-                  "fills": Array [
-                    Object {
-                      "color": Object {
-                        "b": 0,
-                        "g": 1,
-                        "r": 0.07058823529411765,
-                      },
-                      "type": "SOLID",
-                    },
-                  ],
-                  "height": 100,
-                  "parent": [Circular],
-                  "pluginData": Object {
-                    "isReactFigmaNode": "true",
-                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-                  },
-                  "type": "RECTANGLE",
-                  "width": 200,
-                },
-              ],
-              "parent": [Circular],
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{}",
-              },
-              "type": "GROUP",
-            },
-            ChildrenMixinStub {
-              "children": Array [
-                LayoutMixinStub {
-                  "fills": Array [
-                    Object {
-                      "color": Object {
-                        "b": 0,
-                        "g": 1,
-                        "r": 0.07058823529411765,
-                      },
-                      "type": "SOLID",
-                    },
-                  ],
-                  "height": 100,
-                  "parent": [Circular],
-                  "pluginData": Object {
-                    "isReactFigmaNode": "true",
-                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-                  },
-                  "type": "RECTANGLE",
-                  "width": 200,
-                },
-                LayoutMixinStub {
-                  "fills": Array [
-                    Object {
-                      "color": Object {
-                        "b": 0,
-                        "g": 1,
-                        "r": 0.07058823529411765,
-                      },
-                      "type": "SOLID",
-                    },
-                  ],
-                  "height": 100,
-                  "parent": [Circular],
-                  "pluginData": Object {
-                    "isReactFigmaNode": "true",
-                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
-                  },
-                  "type": "RECTANGLE",
-                  "width": 200,
-                },
-              ],
-              "parent": [Circular],
-              "pluginData": Object {
-                "isReactFigmaNode": "true",
-                "reactStyle": "{}",
-              },
-              "type": "GROUP",
-            },
-          ],
-          "parent": [Circular],
-          "pluginData": Object {
-            "isReactFigmaNode": "true",
-            "reactStyle": "{}",
-          },
-          "type": "GROUP",
-        },
-      ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -342,23 +914,117 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
 
-exports[`renderer creates single group 1`] = `
+exports[`renderer Text with expression 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        ChildrenMixinStub {
+        ExportMixinStub {
+          "_characters": "1/2",
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "fontSize": 12,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "letterSpacing": Object {
+            "unit": "PIXELS",
+            "value": 0,
+          },
+          "lineHeight": Object {
+            "unit": "AUTO",
+          },
+          "locked": false,
+          "opacity": 1,
+          "paragraphIndent": 0,
+          "paragraphSpacing": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "textAlignHorizontal": "LEFT",
+          "textAlignVertical": "TOP",
+          "textCase": "ORIGINAL",
+          "textDecoration": "NONE",
+          "type": "TEXT",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer createComponent basic 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
           "children": Array [
-            LayoutMixinStub {
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
               "fills": Array [
                 Object {
                   "color": Object {
@@ -366,27 +1032,189 @@ ChildrenMixinStub {
                     "g": 1,
                     "r": 0.07058823529411765,
                   },
+                  "opacity": 1,
                   "type": "SOLID",
                 },
               ],
               "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
               "parent": [Circular],
               "pluginData": Object {
                 "isReactFigmaNode": "true",
                 "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
               },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
               "type": "RECTANGLE",
+              "visible": true,
               "width": 200,
             },
           ],
+          "clipsContent": false,
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [],
+          "guides": Array [],
+          "id": "1:3",
+          "isMask": false,
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrids": Array [],
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{}",
           },
-          "type": "GROUP",
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "type": "COMPONENT",
+          "visible": true,
+        },
+        LayoutMixinStub {
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": LayoutMixinStub {
+                "backgrounds": Array [],
+                "blendMode": "NORMAL",
+                "children": Array [
+                  [Circular],
+                ],
+                "clipsContent": false,
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "counterAxisAlignItems": "MIN",
+                "counterAxisSizingMode": "AUTO",
+                "effects": Array [],
+                "exportSettings": Array [],
+                "fills": Array [],
+                "guides": Array [],
+                "id": "1:3",
+                "isMask": false,
+                "itemSpacing": 0,
+                "layoutAlign": "INHERIT",
+                "layoutGrids": Array [],
+                "layoutGrow": 0,
+                "layoutMode": "NONE",
+                "locked": false,
+                "opacity": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "primaryAxisAlignItems": "MIN",
+                "primaryAxisSizingMode": "AUTO",
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "COMPONENT",
+                "visible": true,
+              },
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "exportSettings": Array [],
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "type": "INSTANCE",
+          "visible": true,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -395,6 +1223,779 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer createComponent hydration 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0.3176470588235294,
+                    "r": 0,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "clipsContent": false,
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [],
+          "guides": Array [],
+          "id": "1:3",
+          "isMask": false,
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrids": Array [],
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "type": "COMPONENT",
+          "visible": true,
+        },
+        LayoutMixinStub {
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0.3176470588235294,
+                    "r": 0,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": LayoutMixinStub {
+                "backgrounds": Array [],
+                "blendMode": "NORMAL",
+                "children": Array [
+                  [Circular],
+                ],
+                "clipsContent": false,
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "counterAxisAlignItems": "MIN",
+                "counterAxisSizingMode": "AUTO",
+                "effects": Array [],
+                "exportSettings": Array [],
+                "fills": Array [],
+                "guides": Array [],
+                "id": "1:3",
+                "isMask": false,
+                "itemSpacing": 0,
+                "layoutAlign": "INHERIT",
+                "layoutGrids": Array [],
+                "layoutGrow": 0,
+                "layoutMode": "NONE",
+                "locked": false,
+                "opacity": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "primaryAxisAlignItems": "MIN",
+                "primaryAxisSizingMode": "AUTO",
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "COMPONENT",
+                "visible": true,
+              },
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0051ff\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "exportSettings": Array [],
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "type": "INSTANCE",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer createComponent overriding 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "name": "rect",
+              "opacity": 1,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "clipsContent": false,
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fills": Array [],
+          "guides": Array [],
+          "height": 100,
+          "id": "1:3",
+          "isMask": false,
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrids": Array [],
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "opacity": 1,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
+          "type": "COMPONENT",
+          "visible": true,
+          "width": 200,
+          "x": 0,
+          "y": 0,
+        },
+        LayoutMixinStub {
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 1,
+                    "g": 0,
+                    "r": 0,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "name": "rect",
+              "opacity": 1,
+              "parent": LayoutMixinStub {
+                "backgrounds": Array [],
+                "blendMode": "NORMAL",
+                "children": Array [
+                  [Circular],
+                ],
+                "clipsContent": false,
+                "constraints": Object {
+                  "horizontal": "MIN",
+                  "vertical": "MIN",
+                },
+                "cornerRadius": 0,
+                "cornerSmoothing": 0,
+                "counterAxisAlignItems": "MIN",
+                "counterAxisSizingMode": "AUTO",
+                "effects": Array [],
+                "exportSettings": Array [],
+                "fills": Array [],
+                "guides": Array [],
+                "height": 100,
+                "id": "1:3",
+                "isMask": false,
+                "itemSpacing": 0,
+                "layoutAlign": "INHERIT",
+                "layoutGrids": Array [],
+                "layoutGrow": 0,
+                "layoutMode": "NONE",
+                "locked": false,
+                "opacity": 1,
+                "paddingBottom": 0,
+                "paddingLeft": 0,
+                "paddingRight": 0,
+                "paddingTop": 0,
+                "parent": [Circular],
+                "pluginData": Object {
+                  "isReactFigmaNode": "true",
+                  "reactStyle": "{}",
+                },
+                "primaryAxisAlignItems": "MIN",
+                "primaryAxisSizingMode": "AUTO",
+                "strokeAlign": "INSIDE",
+                "strokeCap": "NONE",
+                "strokeWeight": 0,
+                "strokes": Array [],
+                "type": "COMPONENT",
+                "visible": true,
+                "width": 200,
+                "x": 0,
+                "y": 0,
+              },
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"backgroundColor\\":\\"#0000ff\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "counterAxisAlignItems": "MIN",
+          "counterAxisSizingMode": "AUTO",
+          "exportSettings": Array [],
+          "height": 100,
+          "itemSpacing": 0,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "layoutMode": "NONE",
+          "locked": false,
+          "paddingBottom": 0,
+          "paddingLeft": 0,
+          "paddingRight": 0,
+          "paddingTop": 0,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "primaryAxisAlignItems": "MIN",
+          "primaryAxisSizingMode": "AUTO",
+          "type": "INSTANCE",
+          "visible": true,
+          "width": 200,
+          "x": 0,
+          "y": 100,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer creates nested groups 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            LayoutMixinStub {
+              "backgrounds": Array [],
+              "blendMode": "NORMAL",
+              "children": Array [
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "opacity": 1,
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "id": "1:2",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "RECTANGLE",
+                  "visible": true,
+                  "width": 200,
+                },
+              ],
+              "effects": Array [],
+              "exportSettings": Array [],
+              "id": "1:4",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+              "visible": true,
+            },
+            LayoutMixinStub {
+              "backgrounds": Array [],
+              "blendMode": "NORMAL",
+              "children": Array [
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "opacity": 1,
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "id": "1:5",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "RECTANGLE",
+                  "visible": true,
+                  "width": 200,
+                },
+                ExportMixinStub {
+                  "blendMode": "NORMAL",
+                  "constraints": Object {
+                    "horizontal": "MIN",
+                    "vertical": "MIN",
+                  },
+                  "cornerRadius": 0,
+                  "cornerSmoothing": 0,
+                  "effects": Array [],
+                  "exportSettings": Array [],
+                  "fills": Array [
+                    Object {
+                      "color": Object {
+                        "b": 0,
+                        "g": 1,
+                        "r": 0.07058823529411765,
+                      },
+                      "opacity": 1,
+                      "type": "SOLID",
+                    },
+                  ],
+                  "height": 100,
+                  "id": "1:6",
+                  "isMask": false,
+                  "layoutAlign": "INHERIT",
+                  "layoutGrow": 0,
+                  "locked": false,
+                  "opacity": 1,
+                  "parent": [Circular],
+                  "pluginData": Object {
+                    "isReactFigmaNode": "true",
+                    "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+                  },
+                  "strokeAlign": "INSIDE",
+                  "strokeCap": "NONE",
+                  "strokeWeight": 0,
+                  "strokes": Array [],
+                  "type": "RECTANGLE",
+                  "visible": true,
+                  "width": 200,
+                },
+              ],
+              "effects": Array [],
+              "exportSettings": Array [],
+              "id": "1:8",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{}",
+              },
+              "type": "GROUP",
+              "visible": true,
+            },
+          ],
+          "effects": Array [],
+          "exportSettings": Array [],
+          "id": "1:10",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "GROUP",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
+  "type": "DOCUMENT",
+}
+`;
+
+exports[`renderer creates single group 1`] = `
+ChildrenMixinStub {
+  "children": Array [
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
+      "children": Array [
+        LayoutMixinStub {
+          "backgrounds": Array [],
+          "blendMode": "NORMAL",
+          "children": Array [
+            ExportMixinStub {
+              "blendMode": "NORMAL",
+              "constraints": Object {
+                "horizontal": "MIN",
+                "vertical": "MIN",
+              },
+              "cornerRadius": 0,
+              "cornerSmoothing": 0,
+              "effects": Array [],
+              "exportSettings": Array [],
+              "fills": Array [
+                Object {
+                  "color": Object {
+                    "b": 0,
+                    "g": 1,
+                    "r": 0.07058823529411765,
+                  },
+                  "opacity": 1,
+                  "type": "SOLID",
+                },
+              ],
+              "height": 100,
+              "id": "1:2",
+              "isMask": false,
+              "layoutAlign": "INHERIT",
+              "layoutGrow": 0,
+              "locked": false,
+              "opacity": 1,
+              "parent": [Circular],
+              "pluginData": Object {
+                "isReactFigmaNode": "true",
+                "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
+              },
+              "strokeAlign": "INSIDE",
+              "strokeCap": "NONE",
+              "strokeWeight": 0,
+              "strokes": Array [],
+              "type": "RECTANGLE",
+              "visible": true,
+              "width": 200,
+            },
+          ],
+          "effects": Array [],
+          "exportSettings": Array [],
+          "id": "1:4",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
+          "parent": [Circular],
+          "pluginData": Object {
+            "isReactFigmaNode": "true",
+            "reactStyle": "{}",
+          },
+          "type": "GROUP",
+          "visible": true,
+        },
+      ],
+      "exportSettings": Array [],
+      "id": "1:1",
+      "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
+      "type": "PAGE",
+    },
+  ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -402,14 +2003,24 @@ ChildrenMixinStub {
 exports[`renderer insert new component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -417,19 +2028,40 @@ ChildrenMixinStub {
                 "g": 1,
                 "r": 0.07058823529411765,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -437,19 +2069,40 @@ ChildrenMixinStub {
                 "g": 0.35294117647058826,
                 "r": 0,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#005aff\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -457,19 +2110,33 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "2:5",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -478,27 +2145,20 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
 
 exports[`renderer mark page isCurrent=false 1`] = `
-ChildrenMixinStub {
+ExportMixinStub {
   "children": Array [],
+  "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
       [Circular],
-      ChildrenMixinStub {
-        "children": Array [],
-        "name": "New page",
-        "parent": [Circular],
-        "pluginData": Object {
-          "isReactFigmaNode": "true",
-          "reactStyle": "{}",
-        },
-        "type": "PAGE",
-      },
     ],
+    "id": "0:0",
     "type": "DOCUMENT",
   },
   "type": "PAGE",
@@ -506,23 +2166,15 @@ ChildrenMixinStub {
 `;
 
 exports[`renderer mark page isCurrent=true 1`] = `
-ChildrenMixinStub {
+ExportMixinStub {
   "children": Array [],
-  "name": "New page",
+  "id": "0:1",
   "parent": ChildrenMixinStub {
     "children": Array [
-      ChildrenMixinStub {
-        "children": Array [],
-        "parent": [Circular],
-        "type": "PAGE",
-      },
       [Circular],
     ],
+    "id": "0:0",
     "type": "DOCUMENT",
-  },
-  "pluginData": Object {
-    "isReactFigmaNode": "true",
-    "reactStyle": "{}",
   },
   "type": "PAGE",
 }
@@ -531,14 +2183,24 @@ ChildrenMixinStub {
 exports[`renderer remove component between (equal components) 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -546,19 +2208,40 @@ ChildrenMixinStub {
                 "g": 0.2823529411764706,
                 "r": 0,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#0048ff\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -566,19 +2249,33 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -587,6 +2284,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -594,14 +2292,24 @@ ChildrenMixinStub {
 exports[`renderer remove component between 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -609,19 +2317,40 @@ ChildrenMixinStub {
                 "g": 1,
                 "r": 0.07058823529411765,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -629,19 +2358,33 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:4",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -650,6 +2393,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -657,9 +2401,24 @@ ChildrenMixinStub {
 exports[`renderer render single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -667,23 +2426,42 @@ ChildrenMixinStub {
                 "g": 1,
                 "r": 0.07058823529411765,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -691,9 +2469,24 @@ ChildrenMixinStub {
 exports[`renderer rerender single component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
+      "children": Array [],
+      "id": "0:1",
+      "parent": [Circular],
+      "type": "PAGE",
+    },
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -701,23 +2494,42 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
+      "pluginData": Object {
+        "isReactFigmaNode": "true",
+        "reactStyle": "{}",
+      },
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -725,14 +2537,24 @@ ChildrenMixinStub {
 exports[`renderer text instance without Text component (with hydration page) 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -740,19 +2562,40 @@ ChildrenMixinStub {
                 "g": 1,
                 "r": 0.07058823529411765,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "2:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -760,19 +2603,33 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "2:4",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -781,6 +2638,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;
@@ -788,14 +2646,24 @@ ChildrenMixinStub {
 exports[`renderer text instance without Text component 1`] = `
 ChildrenMixinStub {
   "children": Array [
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [],
+      "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
-    ChildrenMixinStub {
+    ExportMixinStub {
       "children": Array [
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -803,19 +2671,40 @@ ChildrenMixinStub {
                 "g": 1,
                 "r": 0.07058823529411765,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:2",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#12ff00\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
-        LayoutMixinStub {
+        ExportMixinStub {
+          "blendMode": "NORMAL",
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "cornerRadius": 0,
+          "cornerSmoothing": 0,
+          "effects": Array [],
+          "exportSettings": Array [],
           "fills": Array [
             Object {
               "color": Object {
@@ -823,19 +2712,33 @@ ChildrenMixinStub {
                 "g": 0.20784313725490197,
                 "r": 1,
               },
+              "opacity": 1,
               "type": "SOLID",
             },
           ],
           "height": 100,
+          "id": "1:3",
+          "isMask": false,
+          "layoutAlign": "INHERIT",
+          "layoutGrow": 0,
+          "locked": false,
+          "opacity": 1,
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
             "reactStyle": "{\\"width\\":200,\\"height\\":100,\\"backgroundColor\\":\\"#ff3500\\"}",
           },
+          "strokeAlign": "INSIDE",
+          "strokeCap": "NONE",
+          "strokeWeight": 0,
+          "strokes": Array [],
           "type": "RECTANGLE",
+          "visible": true,
           "width": 200,
         },
       ],
+      "exportSettings": Array [],
+      "id": "1:1",
       "parent": [Circular],
       "pluginData": Object {
         "isReactFigmaNode": "true",
@@ -844,6 +2747,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "id": "0:0",
   "type": "DOCUMENT",
 }
 `;

@@ -4,15 +4,18 @@ import { ResizeMode } from '../../styleTransformers/transformGeometryStyleProper
 import { StyleSheet } from '../..';
 
 export interface ImageProps extends RectangleProps {
-    source: string;
+    source: string | { uri: string } | { default: string };
     resizeMode?: ResizeMode;
 }
 
-export const Image: React.FC<ImageProps> = props => {
-    const style = (props.style && StyleSheet.flatten(props.style)) || {};
-
-    style.backgroundImage = props.source;
-    style.backgroundSize = props.resizeMode;
-
-    return <Rectangle {...props} style={style} />;
+const Image: React.FC<ImageProps> = props => {
+    const { style, source, resizeMode } = props;
+    return (
+        <Rectangle
+            {...props}
+            style={[StyleSheet.flatten(style), { backgroundImage: source, backgroundSize: resizeMode }]}
+        />
+    );
 };
+
+export { Image };

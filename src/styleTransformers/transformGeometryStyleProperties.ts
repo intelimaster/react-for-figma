@@ -1,14 +1,14 @@
 import { GeometryProps } from '../types';
-import { colorToRGB } from './transformColors';
+import { colorToPaint, colorToRGB } from './transformColors';
 import { LayoutStyleProperties } from './transformLayoutStyleProperties';
 import { transformSize } from '../helpers/size';
 
 export type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' | 'none';
 
 export type GeometryStyleProperties = {
-    backgroundColor?: string;
-    backgroundImage?: string;
-    backgroundSize?: ResizeMode;
+    backgroundColor: string;
+    backgroundImage: string | { uri: string } | { default: string };
+    backgroundSize: ResizeMode;
 };
 
 const backgroundSizeToScaleMode = {
@@ -22,7 +22,8 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: LayoutStyleProperties & GeometryStyleProperties
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties & { fillStyleId?: string; strokeStyleId?: string }>,
+    imageHash?: string
 ): GeometryProps => {
     if (!style) {
         return {};
@@ -31,27 +32,45 @@ export const transformGeometryStyleProperties = (
     const fills = [];
 
     if (style.backgroundColor) {
-        fills.push({ type: 'SOLID', color: colorToRGB(style.backgroundColor) });
+        fills.push(colorToPaint(style.backgroundColor));
     }
 
     if (style.backgroundImage) {
-        if (style.backgroundSize === 'stretch') {
-            fills.push({
-                type: 'IMAGE',
-                image: style.backgroundImage,
-                scaleMode: backgroundSizeToScaleMode.stretch,
-                imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
-            });
-        } else {
-            fills.push({
-                type: 'IMAGE',
-                image: style.backgroundImage,
-                scaleMode: style.backgroundSize ? backgroundSizeToScaleMode[style.backgroundSize] : undefined
-            });
+        let color;
+        try {
+            color = colorToPaint(
+                typeof style.backgroundImage === 'string'
+                    ? style.backgroundImage
+                    : 'uri' in style.backgroundImage
+                    ? style.backgroundImage.uri
+                    : style.backgroundImage.default
+            );
+        } catch (e) {}
+        if (color) {
+            fills.push(color);
+        } else if (imageHash) {
+            if (style.backgroundSize === 'stretch') {
+                fills.push({
+                    type: 'IMAGE',
+                    imageHash,
+                    scaleMode: backgroundSizeToScaleMode.stretch,
+                    imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
+                });
+            } else {
+                fills.push({
+                    type: 'IMAGE',
+                    imageHash,
+                    scaleMode: style.backgroundSize
+                        ? backgroundSizeToScaleMode[style.backgroundSize]
+                        : backgroundSizeToScaleMode.cover
+                });
+            }
         }
     }
 
     return {
-        ...((fills.length > 0 && { [property]: fills }) || {})
+        ...((fills.length > 0 && { [property]: fills }) || {}),
+        ...((style.fillStyleId && { fillStyleId: style.fillStyleId }) || {}),
+        ...((style.strokeStyleId && { strokeStyleId: style.strokeStyleId }) || {})
     };
 };

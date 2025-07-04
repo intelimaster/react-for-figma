@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": ".",
     "module": "commonjs",
     "target": "es5",
     "lib": ["es5", "es6", "es7", "es2017", "dom"],
@@ -11,8 +11,12 @@
     "rootDirs": ["src"],
     "baseUrl": "src",
     "skipLibCheck": true,
-    "declaration": true
+    "declaration": true,
+    "typeRoots": [
+      "./node_modules/@types",
+      "./node_modules/@figma"
+    ]
   },
-  "include": ["src/**/*", "figma.d.ts", "jsx-interfaces.d.ts", "images.d.ts"],
-  "exclude": ["node_modules", "dist", "**/__tests__/**"]
+  "include": ["src/**/*", "jsx-interfaces.d.ts", "images.d.ts"],
+  "exclude": ["node_modules", "**/__tests__/**"]
 }
