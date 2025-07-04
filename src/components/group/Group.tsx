@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
+import { ConstraintsProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -14,26 +14,39 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
-export interface GroupNodeProps extends DefaultShapeProps, InstanceItemProps, SelectionEventProps {
+export interface GroupNodeProps
+    extends Omit<DefaultShapeProps, keyof ConstraintsProps>,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
 }
 
-export const Group: React.FC<GroupNodeProps> = props => {
+const Group: React.FC<GroupNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+
+    const imageHash = useImageHash(style.backgroundImage);
 
     const groupProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
         ...props,
         style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...groupProps });
+    useOnLayoutHandler(yogaChildProps, props);
 
     return <group {...groupProps} {...yogaChildProps} innerRef={nodeRef} />;
 };
+
+export { Group };

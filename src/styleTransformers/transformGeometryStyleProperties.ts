@@ -7,8 +7,9 @@ export type ResizeMode = 'contain' | 'cover' | 'stretch' | 'center' | 'repeat' |
 
 export type GeometryStyleProperties = {
     backgroundColor: string;
-    backgroundImage: string;
+    backgroundImage: string | { uri: string } | { default: string };
     backgroundSize: ResizeMode;
+    fillStyleId?: string;
 };
 
 const backgroundSizeToScaleMode = {
@@ -22,7 +23,8 @@ const backgroundSizeToScaleMode = {
 
 export const transformGeometryStyleProperties = (
     property: 'fills' | 'backgrounds',
-    style?: Partial<LayoutStyleProperties & GeometryStyleProperties>
+    style?: Partial<LayoutStyleProperties & GeometryStyleProperties & { strokeStyleId?: string }>,
+    imageHash?: string
 ): GeometryProps => {
     if (!style) {
         return {};
@@ -37,27 +39,39 @@ export const transformGeometryStyleProperties = (
     if (style.backgroundImage) {
         let color;
         try {
-            color = colorToPaint(style.backgroundImage);
+            color = colorToPaint(
+                typeof style.backgroundImage === 'string'
+                    ? style.backgroundImage
+                    : 'uri' in style.backgroundImage
+                    ? style.backgroundImage.uri
+                    : style.backgroundImage.default
+            );
         } catch (e) {}
         if (color) {
             fills.push(color);
-        } else if (style.backgroundSize === 'stretch') {
-            fills.push({
-                type: 'IMAGE',
-                image: style.backgroundImage,
-                scaleMode: backgroundSizeToScaleMode.stretch,
-                imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
-            });
-        } else {
-            fills.push({
-                type: 'IMAGE',
-                image: style.backgroundImage,
-                scaleMode: style.backgroundSize ? backgroundSizeToScaleMode[style.backgroundSize] : undefined
-            });
+        } else if (imageHash) {
+            if (style.backgroundSize === 'stretch') {
+                fills.push({
+                    type: 'IMAGE',
+                    imageHash,
+                    scaleMode: backgroundSizeToScaleMode.stretch,
+                    imageTransform: [[transformSize(style.width), 0, 0], [0, transformSize(style.height), 0]]
+                });
+            } else {
+                fills.push({
+                    type: 'IMAGE',
+                    imageHash,
+                    scaleMode: style.backgroundSize
+                        ? backgroundSizeToScaleMode[style.backgroundSize]
+                        : backgroundSizeToScaleMode.cover
+                });
+            }
         }
     }
 
     return {
-        ...((fills.length > 0 && { [property]: fills }) || {})
+        ...((fills.length > 0 && { [property]: fills }) || {}),
+        ...((style.fillStyleId && { fillStyleId: style.fillStyleId }) || {}),
+        ...((style.strokeStyleId && { strokeStyleId: style.strokeStyleId }) || {})
     };
 };

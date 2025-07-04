@@ -1,8 +1,8 @@
 
 const docusaurusConfig = {
     title: 'React Figma',
-    tagline: 'Render React components to Figma',
-    url: 'https://react-figma.now.sh/',
+    tagline: 'A React renderer for Figma',
+    url: 'https://react-figma.dev/',
     baseUrl: '/',
 
     projectName: 'react-figma',
@@ -21,8 +21,9 @@ const docusaurusConfig = {
             logo: {
                 alt: 'React Figma Logo',
                 src: 'img/react-figma-logo.svg',
+                srcDark: 'img/react-figma-logo-white.svg',
             },
-            links: [
+            items: [
                 {to: 'docs/API', label: 'Docs', position: 'right'},
                 {href: "https://github.com/react-figma/react-figma", label: "GitHub", position: 'right'},
                 {to: 'blog', label: "Blog", position: 'right'},
@@ -46,19 +47,27 @@ const docusaurusConfig = {
                             label: 'Styling',
                             to: '/docs/styling',
                         },
+                        {
+                            label: 'Ecosystem',
+                            to: '/docs/ecosystem',
+                        },
                     ],
                 },
                 {
                     title: 'Social',
                     items: [
                         {
-                            label: 'Spectrum Chat',
-                            to: 'https://spectrum.chat/react-figma',
+                            label: 'GitHub Discussions',
+                            to: 'https://github.com/react-figma/react-figma/discussions'
                         },
                         {
                             label: 'Twitter',
-                            to: 'https://twitter.com/ilialesik',
+                            to: 'https://twitter.com/react_figma',
                         },
+                        {
+                            label: 'LinkedIn',
+                            to: 'https://www.linkedin.com/company/reactfigma'
+                        }
                     ],
                 },
             ],
@@ -66,7 +75,7 @@ const docusaurusConfig = {
                 alt: 'React Figma Logo',
                 src: '/img/react-figma-logo-white.svg',
             },
-            copyright: `Copyright © ${new Date().getFullYear()} React Figma Team`,
+            copyright: `Copyright © ${new Date().getFullYear()} Ilya Lesik`,
         },
     },
 

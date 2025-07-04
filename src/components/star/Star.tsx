@@ -16,39 +16,47 @@ import {
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { useYogaLayout } from '../../hooks/useYogaLayout';
-import { useFillsPreprocessor } from '../../hooks/useFillsPreprocessor';
 import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface StarProps
     extends DefaultShapeProps,
         CornerProps,
         StarNodeProps,
         InstanceItemProps,
-        SelectionEventProps {
+        SelectionEventProps,
+        OnLayoutHandlerProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties & GeometryStyleProperties & BlendStyleProperties>;
     children?: undefined;
 }
 
-export const Star: React.FC<StarProps> = props => {
+const Star: React.FC<StarProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
 
+    const imageHash = useImageHash(style.backgroundImage);
+
     const starProps = {
         ...transformLayoutStyleProperties(style),
-        ...transformGeometryStyleProperties('fills', style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
         ...transformBlendProperties(style),
         ...props,
         style
     };
-    const fills = useFillsPreprocessor(starProps);
     const yogaProps = useYogaLayout({ nodeRef, ...starProps });
+    useOnLayoutHandler(yogaProps, props);
 
-    return <star {...starProps} {...yogaProps} {...(fills && { fills })} innerRef={nodeRef} />;
+    return <star {...starProps} {...yogaProps} innerRef={nodeRef} />;
 };
+
+export { Star };

@@ -1,13 +1,16 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
-import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { SvgNodeProps } from '../components/svg/Svg';
 import { hashCode } from '../helpers/hashCode';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+
+import { safeGetPluginData } from '../helpers/safeGetPluginData';
+import { constraintsMixin } from '../mixins/constraintsMixin';
+
 
 const createNodeFromSvg = source => {
     const node = figma.createNodeFromSvg(source);
@@ -18,7 +21,7 @@ const createNodeFromSvg = source => {
 export const svg = node => (props: SvgNodeProps) => {
     let frameNode = node || props.node || createNodeFromSvg(props.source);
 
-    const savedHash = frameNode.getPluginData('svgHash');
+    const savedHash = safeGetPluginData('svgHash')(frameNode);
     if (savedHash != hashCode(props.source)) {
         const newSvg = figma.createNodeFromSvg(props.source);
         layoutMixin(newSvg)(props);
@@ -30,8 +33,6 @@ export const svg = node => (props: SvgNodeProps) => {
         node.setPluginData('svgHash', hashCode(props.source));
     }
 
-    refMixin(frameNode)(props);
-
     saveStyleMixin(frameNode)(props);
     baseNodeMixin(frameNode)(props);
     layoutMixin(frameNode)(props);
@@ -40,6 +41,8 @@ export const svg = node => (props: SvgNodeProps) => {
 
     frameMixin(frameNode)(props);
     sceneNodeMixin(frameNode)(props);
+    constraintsMixin(frameNode)(props);
+
 
     return frameNode;
 };

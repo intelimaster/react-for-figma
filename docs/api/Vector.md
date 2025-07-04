@@ -16,6 +16,8 @@ Wrapper for the Figma [Vector](https://www.figma.com/plugin-docs/api/VectorNode/
 | `style`    | [`Style`](/docs/styling)   |         | Not all props                                                 |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 Also, most of the [VectorNode](https://www.figma.com/plugin-docs/api/VectorNode/) fields are supported as props.
 
