@@ -1,18 +1,17 @@
 import { baseNodeMixin } from '../mixins/baseNodeMixin';
-import { BaseNodeProps, ChildrenProps, LayoutProps } from '../types';
-import { childrenMixin } from '../mixins/childrenMixin';
-import { yogaMixin } from '../mixins/yogaMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
+import { exportMixin } from '../mixins/exportMixin';
+import { pageMixin } from '../mixins/pageMixin';
+import { PageProps } from '../components/page/Page';
 
-export interface PageProps extends BaseNodeProps, ChildrenProps {}
-
-export const page = node => async props => {
+export const page = (node: PageNode) => (props: PageProps) => {
     const page = node || figma.createPage();
 
-    await yogaMixin(page)(props);
     saveStyleMixin(page)(props);
     baseNodeMixin(page)(props);
-    childrenMixin(page)(props);
+    exportMixin(page)(props);
+
+    pageMixin(page)(props);
 
     return page;
 };

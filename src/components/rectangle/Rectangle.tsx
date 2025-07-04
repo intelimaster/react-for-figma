@@ -1,5 +1,12 @@
 import * as React from 'react';
-import { DefaultShapeProps } from '../../types';
+import {
+    DefaultShapeProps,
+    BorderProps,
+    CornerProps,
+    StyleOf,
+    InstanceItemProps,
+    SelectionEventProps
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -8,18 +15,61 @@ import {
     GeometryStyleProperties,
     transformGeometryStyleProperties
 } from '../../styleTransformers/transformGeometryStyleProperties';
+import { useYogaLayout } from '../../hooks/useYogaLayout';
+import {
+    BorderStyleProperties,
+    transformBorderStyleProperties
+} from '../../styleTransformers/transformBorderProperties';
+import { transformBlendProperties, BlendStyleProperties } from '../../styleTransformers/transformBlendProperties';
+import { StyleSheet } from '../..';
+import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { filter } from 'rxjs/operators';
+import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
-interface RectangleProps extends DefaultShapeProps {
-    style?: LayoutStyleProperties & GeometryStyleProperties;
+export interface RectangleProps
+    extends DefaultShapeProps,
+        CornerProps,
+        BorderProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        OnLayoutHandlerProps {
+    style?: StyleOf<
+        LayoutStyleProperties &
+            YogaStyleProperties &
+            BorderStyleProperties &
+            BlendStyleProperties &
+            GeometryStyleProperties
+    >;
     children?: undefined;
 }
 
-export const Rectangle: React.ElementType<RectangleProps> = props => {
-    const rectangleProps = {
-        ...transformLayoutStyleProperties(props.style),
-        ...transformGeometryStyleProperties(props.style),
-        ...props
-    };
+const Rectangle: React.FC<RectangleProps> = props => {
+    const nodeRef = React.useRef();
 
-    return <rectangle {...rectangleProps} />;
+    useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+
+    const imageHash = useImageHash(style.backgroundImage);
+
+    const rectangleProps = {
+        ...transformLayoutStyleProperties(style),
+        ...transformGeometryStyleProperties('fills', style, imageHash),
+        ...transformBorderStyleProperties(style),
+        ...transformBlendProperties(style),
+        ...props,
+        style
+    };
+    const yogaProps = useYogaLayout({ nodeRef, ...rectangleProps });
+
+    useOnLayoutHandler(yogaProps, props);
+
+    return <rectangle {...rectangleProps} {...yogaProps} innerRef={nodeRef} />;
 };
+
+export { Rectangle };
