@@ -12,6 +12,7 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { api } from '../../rpc';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface InstanceProps
     extends DefaultContainerProps,
@@ -21,6 +22,7 @@ export interface InstanceProps
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties>;
     overrides?: { [key: string]: Object };
     component: ComponentNode;
+    detach?: boolean;
 }
 
 const getComponentByType = type => {
@@ -54,6 +56,7 @@ const Instance: React.FC<InstanceProps> = props => {
     const [isHaveNode, setHaveNode] = React.useState(false);
     const nodeRef = React.useRef<InstanceNode>();
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const componentProps = {
         ...transformLayoutStyleProperties(style),

@@ -1,11 +1,13 @@
 import { Color, GeometryProps, TextNodeProps } from '../types';
-import { colorToPaint, colorToRGB } from './transformColors';
+import { colorToPaint } from './transformColors';
 import { convertFontStyle } from './converFontStyle';
 import { transformDimensionMapper } from './transformDimension';
 import { transformShadowToEffect } from './transformShadowToEffect';
+import { DEFAULT_FONT } from '../helpers/constants';
 
 export interface TextStyleProperties {
     color: string;
+    fillStyleId: string;
     fontFamily: string;
     fontWeight: 'normal' | 'bold' | '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900';
     fontStyle: 'normal' | 'italic' | 'solid';
@@ -47,10 +49,12 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
 
     return {
         ...((style && style.color && { fills: [colorToPaint(style.color)] }) || { fills: [colorToPaint('#000000')] }),
-        ...(style &&
-            style.fontFamily && {
-                fontName: { family: style.fontFamily, style: convertFontStyle(style.fontWeight, style.fontStyle) }
-            }),
+        ...(style && {
+            fontName: {
+                family: style.fontFamily || DEFAULT_FONT.family,
+                style: convertFontStyle(style.fontWeight, style.fontStyle)
+            }
+        }),
         ...(style && style.fontSize && { fontSize: style.fontSize }),
         ...(style &&
             style.textAlign &&
@@ -80,13 +84,11 @@ export const transformTextStyleProperties = (style?: Partial<TextStyleProperties
             }),
         ...(style &&
             style.textShadowColor && {
-                effects: [
-                    transformShadowToEffect({
-                        shadowColor: style.textShadowColor,
-                        shadowOffset: style.textShadowOffset,
-                        shadowRadius: style.textShadowRadius
-                    })
-                ]
+                effects: transformShadowToEffect({
+                    shadowColor: style.textShadowColor,
+                    shadowOffset: style.textShadowOffset,
+                    shadowRadius: style.textShadowRadius
+                })
             })
     };
 };

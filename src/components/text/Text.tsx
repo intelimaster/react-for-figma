@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-    CornerProps,
-    DefaultShapeProps,
-    InstanceItemProps,
-    SelectionEventProps,
-    StyleOf,
-    TextNodeProps
-} from '../../types';
+import { DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf, TextNodeProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -25,6 +18,7 @@ import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
 import { useInheritStyle } from '../../hooks/useInheritStyle';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface TextProps
     extends TextNodeProps,
@@ -46,6 +40,7 @@ const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
     const inheritedStyle = useInheritStyle();
     const flattenOriginalStyle = StyleSheet.flatten(props.style);
 
@@ -70,11 +65,12 @@ const Text: React.FC<TextProps> = props => {
         ...props,
         characters: charactersByChildren || props.characters,
         ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
+        ...(style && style.fillStyleId ? { fillStyleId: style.fillStyleId } : {}),
         style,
         children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
-    const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
+    const loadedFont = useFontName(textProps.fontName);
     const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 

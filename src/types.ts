@@ -19,6 +19,7 @@ export interface BaseNodeProps {
             [key: string]: string;
         };
     };
+    onNodeId?: (nodeId: string) => void;
 }
 
 export interface LayoutProps {
@@ -40,7 +41,7 @@ export interface ChildrenProps {
 export interface GeometryProps {
     fills?: ReadonlyArray<Paint> | symbol;
     strokes?: ReadonlyArray<Paint>;
-    strokeWeight?: number;
+    strokeWeight?: number | PluginAPI['mixed'];
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
     strokeCap?: StrokeCap | symbol;
     strokeJoin?: StrokeJoin | symbol;
@@ -51,6 +52,7 @@ export interface GeometryProps {
 
 export interface FrameProps {
     backgrounds?: ReadonlyArray<Paint>;
+    fillStyleId?: string | symbol;
 }
 
 export interface CornerProps {
@@ -96,6 +98,8 @@ export interface TextNodeProps {
     lineHeight?: LineHeight | symbol;
 
     textStyleId?: string;
+
+    hyperlink?: HyperlinkTarget;
 }
 
 export interface VectorNodeProps {
@@ -187,4 +191,18 @@ export interface CommonStyleProps {
     id?: string;
     name?: string;
     description?: string;
+}
+
+interface DocumentationLink {
+    readonly uri: string;
+}
+
+export interface PublishableProps {
+    description?: string;
+    documentationLinks?: ReadonlyArray<DocumentationLink>;
+}
+
+export interface HyperlinkTarget {
+    type: 'URL' | 'NODE';
+    value: string;
 }

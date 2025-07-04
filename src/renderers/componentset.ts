@@ -5,6 +5,8 @@ import { exportMixin } from '../mixins/exportMixin';
 import { blendMixin } from '../mixins/blendMixin';
 import { frameMixin } from '../mixins/frameMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+import { publishableMixin } from '../mixins/publishableMixin';
+import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
 
 const createNewComponentSet = () => {
     const component = figma.createComponent();
@@ -20,9 +22,11 @@ export const componentset = node => props => {
     layoutMixin(componentSetNode)(props);
     exportMixin(componentSetNode)(props);
     blendMixin(componentSetNode)(props);
+    autoLayoutMixin(componentSetNode)(props);
 
     frameMixin(componentSetNode)(props);
     sceneNodeMixin(componentSetNode)(props);
+    publishableMixin(componentSetNode)(props);
 
     return componentSetNode;
 };

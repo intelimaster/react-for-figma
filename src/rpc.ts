@@ -8,6 +8,7 @@ import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleP
 import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
 import { isEqualFontStyle } from './helpers/isEqualFontStyle';
 import { CommonStyleProps } from './types';
+import { DEFAULT_FONT } from './helpers/constants';
 
 const getInitialTree = node => {
     return {
@@ -133,6 +134,7 @@ export const api = createPluginAPI(
                 tempNode.reactId
             );
             cache[tempNode.reactId] = instance;
+            uiApi.bindReactIdWithNode(tempNode.reactId, instance.id);
         },
 
         appendToContainer(_parentNode, _childNode) {
@@ -209,6 +211,10 @@ export const api = createPluginAPI(
             }
         },
 
+        async importStyleByKeyAsync(key: string): Promise<BaseStyle> {
+            return figma.importStyleByKeyAsync(key);
+        },
+
         createOrUpdatePaintStyle(properties: {
             paints: ReadonlyArray<Paint> | symbol | void;
             params: CommonStyleProps;
@@ -241,7 +247,7 @@ export const api = createPluginAPI(
                 textStyle.description = description;
             }
 
-            const { fontName = { family: 'Roboto', style: 'Regular' } } = textProperties;
+            const { fontName = DEFAULT_FONT } = textProperties;
             if (
                 loadedFont &&
                 fontName &&
@@ -253,6 +259,26 @@ export const api = createPluginAPI(
                 });
             }
             return textStyle.id;
+        },
+
+        createOrUpdateEffectStyle(properties: {
+            effects: ReadonlyArray<Effect> | symbol | void;
+            params: CommonStyleProps;
+        }) {
+            const { effects, params } = properties;
+            const { name, id, description } = params;
+            const foundEffectStyle = figma.getLocalEffectStyles().find(style => style.name === name || style.id === id);
+            const effectStyle = foundEffectStyle || figma.createEffectStyle();
+            if (name) {
+                effectStyle.name = name;
+            }
+            if (description) {
+                effectStyle.description = description;
+            }
+            if (effects) {
+                effectStyle.effects = effects as any;
+            }
+            return effectStyle.id;
         }
     },
     {
@@ -278,6 +304,8 @@ export const $selectionReactIds = new Subject();
 
 export const $updateYogaReactId = new Subject();
 
+export const $bindReactIdWithNodeId = new Subject<[string, string]>();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI(
@@ -290,6 +318,9 @@ export const uiApi = createUIAPI(
         },
         updateYogaNode: reactId => {
             $updateYogaReactId.next(reactId);
+        },
+        bindReactIdWithNode: (reactId, nodeId) => {
+            $bindReactIdWithNodeId.next([reactId, nodeId]);
         }
     },
     {

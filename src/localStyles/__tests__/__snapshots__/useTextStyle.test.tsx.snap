@@ -5,28 +5,29 @@ ChildrenMixinStub {
   "children": Array [
     ExportMixinStub {
       "children": Array [],
+      "config": undefined,
       "id": "0:1",
       "parent": [Circular],
       "type": "PAGE",
     },
     ExportMixinStub {
-      "children": Array [
-        ExportMixinStub {
-          "_characters": "",
-          "_fontName": Object {
-            "family": "Roboto",
-            "style": "Bold",
-          },
-          "_textAutoResize": "WIDTH_AND_HEIGHT",
-          "autoRename": false,
+      "_backgrounds": Array [
+        Object {
           "blendMode": "NORMAL",
-          "constraints": Object {
-            "horizontal": "MIN",
-            "vertical": "MIN",
+          "color": Object {
+            "b": 0.9607843160629272,
+            "g": 0.9607843160629272,
+            "r": 0.9607843160629272,
           },
-          "effects": Array [],
-          "exportSettings": Array [],
-          "fills": Array [
+          "opacity": 1,
+          "type": "SOLID",
+          "visible": true,
+        },
+      ],
+      "children": Array [
+        GeometryMixinStub {
+          "_characters": "",
+          "_fills": Array [
             Object {
               "color": Object {
                 "b": 0,
@@ -37,7 +38,26 @@ ChildrenMixinStub {
               "type": "SOLID",
             },
           ],
+          "_fontName": Object {
+            "family": "Roboto",
+            "style": "Bold",
+          },
+          "_textAutoResize": "WIDTH_AND_HEIGHT",
+          "autoRename": false,
+          "blendMode": "NORMAL",
+          "config": Object {
+            "isWithoutTimeout": false,
+            "simulateErrors": true,
+          },
+          "constraints": Object {
+            "horizontal": "MIN",
+            "vertical": "MIN",
+          },
+          "effects": Array [],
+          "exportSettings": Array [],
+          "fillStyleId": "S:test,",
           "fontSize": 24,
+          "hyperlink": null,
           "id": "1:2",
           "isMask": false,
           "layoutAlign": "INHERIT",
@@ -56,7 +76,7 @@ ChildrenMixinStub {
           "parent": [Circular],
           "pluginData": Object {
             "isReactFigmaNode": "true",
-            "reactStyle": "{\\"fontFamily\\":\\"Roboto\\",\\"fontWeight\\":\\"bold\\",\\"fontSize\\":24,\\"color\\":\\"#000000\\",\\"textStyleId\\":\\"S:test,\\"}",
+            "reactStyle": "{\\"fontFamily\\":\\"Roboto\\",\\"fontWeight\\":\\"bold\\",\\"fontSize\\":24,\\"color\\":\\"#000000\\",\\"textStyleId\\":\\"S:test,\\",\\"fillStyleId\\":\\"S:test,\\"}",
           },
           "strokeAlign": "INSIDE",
           "strokeCap": "NONE",
@@ -71,6 +91,10 @@ ChildrenMixinStub {
           "visible": true,
         },
       ],
+      "config": Object {
+        "isWithoutTimeout": false,
+        "simulateErrors": true,
+      },
       "exportSettings": Array [],
       "id": "1:1",
       "parent": [Circular],
@@ -81,6 +105,7 @@ ChildrenMixinStub {
       "type": "PAGE",
     },
   ],
+  "config": undefined,
   "id": "0:0",
   "type": "DOCUMENT",
 }
@@ -97,6 +122,34 @@ Array [
     "id": "S:test,",
     "name": "root/background",
     "remote": false,
+    "styleBasics": Object {
+      "effectStyles": Array [],
+      "gridStyles": Array [],
+      "paintStyles": Array [
+        PaintStyleStub {
+          "id": "S:test,",
+          "name": "root/background",
+          "paints": Array [
+            Object {
+              "color": Object {
+                "b": 0,
+                "g": 0,
+                "r": 0,
+              },
+              "opacity": 1,
+              "type": "SOLID",
+            },
+          ],
+          "remote": false,
+          "styleBasics": [Circular],
+          "type": "PAINT",
+        },
+      ],
+      "styles": Map {
+        "S:test," => [Circular],
+      },
+      "textStyles": [Circular],
+    },
     "type": "TEXT",
   },
 ]
