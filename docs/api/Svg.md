@@ -4,7 +4,7 @@ title: Svg
 ---
 
 Creates frame with figma nodes inside from svg source code. 
-Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/createNodeFromSvg/).
+Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/figma/#createnodefromsvg).
 
 #### Props
 
@@ -16,6 +16,7 @@ Wrapper for the Figma [createNodeFromSvg](https://www.figma.com/plugin-docs/api/
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 Also, most of the [Frame](Frame) props are supported.
 

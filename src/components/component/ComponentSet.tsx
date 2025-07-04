@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { AutoLayoutProps, DefaultContainerProps, SelectionEventProps, StyleOf } from '../../types';
+import { AutoLayoutProps, DefaultContainerProps, PublishableProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -10,12 +10,14 @@ import { StyleSheet } from '../..';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface ComponentSetProps
     extends DefaultContainerProps,
         SelectionEventProps,
         AutoLayoutProps,
-        OnLayoutHandlerProps {
+        OnLayoutHandlerProps,
+        PublishableProps {
     style?: StyleOf<YogaStyleProperties & LayoutStyleProperties>;
     nodeRef?: any;
 }
@@ -23,6 +25,7 @@ export interface ComponentSetProps
 const ComponentSet: React.FC<ComponentSetProps> = props => {
     const nodeRef = props.nodeRef || React.useRef();
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
     const componentProps = {
         ...transformLayoutStyleProperties(style),
