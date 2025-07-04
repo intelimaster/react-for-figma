@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { CornerProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
+import { ConstraintsProps, DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -15,9 +15,11 @@ import {
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface GroupNodeProps
-    extends DefaultShapeProps,
+    extends Omit<DefaultShapeProps, keyof ConstraintsProps>,
         InstanceItemProps,
         SelectionEventProps,
         OnLayoutHandlerProps {
@@ -28,13 +30,16 @@ const Group: React.FC<GroupNodeProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
 
     const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+
+    const imageHash = useImageHash(style.backgroundImage);
 
     const groupProps = {
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
         ...props,
         style
     };

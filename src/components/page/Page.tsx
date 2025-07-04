@@ -5,11 +5,19 @@ import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { $currentPageTempId, api } from '../../rpc';
 import { map } from 'rxjs/operators';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { InheritStyleProvider } from '../../hooks/useInheritStyle';
+import {
+    GeometryStyleProperties,
+    transformGeometryStyleProperties
+} from '../../styleTransformers/transformGeometryStyleProperties';
+import { StyleSheet } from '../../helpers/StyleSheet';
+import { useImageHash } from '../../hooks/useImageHash';
 
 export interface PageProps extends BaseNodeProps, ChildrenProps, ExportProps, OnLayoutHandlerProps {
-    style?: StyleOf<YogaStyleProperties>;
+    style?: StyleOf<YogaStyleProperties & GeometryStyleProperties>;
     isCurrent?: boolean;
     onCurrentChange?: (isCurrent: boolean) => void;
+    backgrounds?: ReadonlyArray<Paint>;
 }
 
 export const useCurrentPageChange = (
@@ -41,7 +49,21 @@ const Page: React.FC<PageProps> = props => {
     const yogaChildProps = useYogaLayout({ nodeRef, ...otherProps });
     useOnLayoutHandler(yogaChildProps, props);
 
-    return <page {...otherProps} {...yogaChildProps} innerRef={nodeRef} />;
+    const style = StyleSheet.flatten(props.style);
+
+    const imageHash = useImageHash(style.backgroundImage);
+
+    const pageProps = {
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
+        ...otherProps,
+        style
+    };
+
+    return (
+        <InheritStyleProvider style={props.style}>
+            <page {...pageProps} {...yogaChildProps} innerRef={nodeRef} />
+        </InheritStyleProvider>
+    );
 };
 
 export { Page };

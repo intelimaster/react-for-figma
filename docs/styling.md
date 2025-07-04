@@ -52,6 +52,7 @@ Components use CSS styles + flexbox layout.
 | `aspectRatio`             | `number`                                                                                    | ✅          |
 | `zIndex`                  | `number`                                                                                    | ⛔          |
 | `backfaceVisibility`      | `visible` &#124; `hidden`                                                                   | ⛔️         |
+| `backgroundImage`         | `string` &#124; `{uri: string}   `                                                               | ✅          |
 | `backgroundColor`         | [`Color`](colors.md)                                                                        | ✅          |
 | `borderColor`             | [`Color`](colors.md)                                                                        | ✅          |
 | `borderTopColor`          | [`Color`](colors.md)                                                                        | ⛔          |
@@ -147,3 +148,56 @@ const colors = {
   ))}
 </View>;
 ```
+
+#### Inheritance
+
+It's possible to enable a CSS-like [inheritance](https://developer.mozilla.org/en-US/docs/Web/CSS/inheritance). 
+
+Available under the flag `process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED`.
+
+An example:
+
+```jsx
+<View style={{ fontSize: 50, fontWeight: 'bold', fontFamily: 'Roboto' }}>
+    <View style={{ fontSize: 48 }}>
+        <View style={{ width: 200, height: 100, backgroundColor: '#dd55aa' }} />
+        <Text style={{ color: '#ffffff' }}>text</Text>
+    </View>
+</View>
+```
+
+The text got a combined style:
+
+```js
+({fontWeight: 'bold', fontFamily: 'Roboto', fontSize: 48, color: '#ffffff' })
+```
+
+Inherited styles props:
+
+* color
+* fontFamily
+* fontSize
+* fontStyle
+* fontVariant
+* fontWeight
+* textAlign
+* lineHeight
+* letterSpacing
+
+Supported components:
+
+* Frame (and View)
+* Page
+* Text (as a recipient)
+
+> Warning! Inheritance is not compatible with React Native.
+
+#### Web defaults
+
+Available under the flag `process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED`.
+
+On the Web defaults mode, react-figma will try to simulate Web default behavior:
+
+* A text with display: block should get full width (`width: 100%`)
+* A container with display: flex should get `flexDirection: row`
+* `alignItems: stretch` for containers by default

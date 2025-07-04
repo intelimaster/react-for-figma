@@ -7,7 +7,10 @@ import { frameMixin } from '../mixins/frameMixin';
 import { SvgNodeProps } from '../components/svg/Svg';
 import { hashCode } from '../helpers/hashCode';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+
 import { safeGetPluginData } from '../helpers/safeGetPluginData';
+import { constraintsMixin } from '../mixins/constraintsMixin';
+
 
 const createNodeFromSvg = source => {
     const node = figma.createNodeFromSvg(source);
@@ -38,6 +41,8 @@ export const svg = node => (props: SvgNodeProps) => {
 
     frameMixin(frameNode)(props);
     sceneNodeMixin(frameNode)(props);
+    constraintsMixin(frameNode)(props);
+
 
     return frameNode;
 };

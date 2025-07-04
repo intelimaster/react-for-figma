@@ -1,9 +1,14 @@
 import { createPluginAPI, createUIAPI } from 'figma-jsonrpc';
 import { isReactFigmaNode } from './helpers/isReactFigmaNode';
 import * as renderers from './renderers';
-import * as nanoid from 'nanoid/non-secure';
+import { nanoid } from 'nanoid/non-secure';
 import { Subject } from 'rxjs';
 import { safeGetPluginData } from './helpers/safeGetPluginData';
+import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
+import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
+import { isEqualFontStyle } from './helpers/isEqualFontStyle';
+import { CommonStyleProps } from './types';
+import { DEFAULT_FONT } from './helpers/constants';
 
 const getInitialTree = node => {
     return {
@@ -55,10 +60,18 @@ const renderInstance = (type, node, props, reactId) => {
     return instance;
 };
 
-const cleanGroupStubElement = parentNode => {
+const cleanStubElements = parentNode => {
     if (parentNode.type === 'GROUP') {
         parentNode.children.forEach(child => {
             if (safeGetPluginData('isGroupStubElement')(child)) {
+                child.remove();
+            }
+        });
+    }
+
+    if (parentNode.type === 'COMPONENT_SET') {
+        parentNode.children.forEach(child => {
+            if (safeGetPluginData('isComponentStubElement')(child)) {
                 child.remove();
             }
         });
@@ -71,7 +84,7 @@ const appendToContainer = (parentNode, childNode) => {
     }
 
     parentNode.appendChild(childNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
@@ -80,7 +93,7 @@ const insertToContainer = (parentNode, newChildNode, beforeChildNode) => {
     }
     const beforeChildIndex = parentNode.children.indexOf(beforeChildNode);
     parentNode.insertChild(beforeChildIndex, newChildNode);
-    cleanGroupStubElement(parentNode);
+    cleanStubElements(parentNode);
 };
 
 const cache = {};
@@ -121,6 +134,7 @@ export const api = createPluginAPI(
                 tempNode.reactId
             );
             cache[tempNode.reactId] = instance;
+            uiApi.bindReactIdWithNode(tempNode.reactId, instance.id);
         },
 
         appendToContainer(_parentNode, _childNode) {
@@ -195,6 +209,76 @@ export const api = createPluginAPI(
                 figma.viewport.scrollAndZoomIntoView([node]);
                 figma.currentPage.selection = [node];
             }
+        },
+
+        async importStyleByKeyAsync(key: string): Promise<BaseStyle> {
+            return figma.importStyleByKeyAsync(key);
+        },
+
+        createOrUpdatePaintStyle(properties: {
+            paints: ReadonlyArray<Paint> | symbol | void;
+            params: CommonStyleProps;
+        }) {
+            const { paints, params } = properties;
+            const { name, id, description } = params;
+            const foundPaintStyle = figma.getLocalPaintStyles().find(style => style.name === name || style.id === id);
+            const paintStyle = foundPaintStyle || figma.createPaintStyle();
+            if (name) {
+                paintStyle.name = name;
+            }
+            if (description) {
+                paintStyle.description = description;
+            }
+            if (paints) {
+                paintStyle.paints = paints as any;
+            }
+            return paintStyle.id;
+        },
+
+        createOrUpdateTextStyle(properties: { textProperties: any | void; params: CommonStyleProps; loadedFont: any }) {
+            const { textProperties = {}, params, loadedFont } = properties;
+            const { name, id, description } = params;
+            const foundTextStyle = figma.getLocalTextStyles().find(style => style.name === name || style.id === id);
+            const textStyle = foundTextStyle || figma.createTextStyle();
+            if (name) {
+                textStyle.name = name;
+            }
+            if (description) {
+                textStyle.description = description;
+            }
+
+            const { fontName = DEFAULT_FONT } = textProperties;
+            if (
+                loadedFont &&
+                fontName &&
+                loadedFont.family === fontName.family &&
+                isEqualFontStyle(loadedFont.style, fontName.style)
+            ) {
+                Object.keys(textProperties).forEach(key => {
+                    textStyle[key] = textProperties[key];
+                });
+            }
+            return textStyle.id;
+        },
+
+        createOrUpdateEffectStyle(properties: {
+            effects: ReadonlyArray<Effect> | symbol | void;
+            params: CommonStyleProps;
+        }) {
+            const { effects, params } = properties;
+            const { name, id, description } = params;
+            const foundEffectStyle = figma.getLocalEffectStyles().find(style => style.name === name || style.id === id);
+            const effectStyle = foundEffectStyle || figma.createEffectStyle();
+            if (name) {
+                effectStyle.name = name;
+            }
+            if (description) {
+                effectStyle.description = description;
+            }
+            if (effects) {
+                effectStyle.effects = effects as any;
+            }
+            return effectStyle.id;
         }
     },
     {
@@ -218,6 +302,10 @@ export const $currentPageTempId = new Subject();
 
 export const $selectionReactIds = new Subject();
 
+export const $updateYogaReactId = new Subject();
+
+export const $bindReactIdWithNodeId = new Subject<[string, string]>();
+
 // those methods will be executed in the Figma UI,
 // regardless of where they are called from
 export const uiApi = createUIAPI(
@@ -227,6 +315,12 @@ export const uiApi = createUIAPI(
         },
         selectionChange: reactIds => {
             $selectionReactIds.next(reactIds);
+        },
+        updateYogaNode: reactId => {
+            $updateYogaReactId.next(reactId);
+        },
+        bindReactIdWithNode: (reactId, nodeId) => {
+            $bindReactIdWithNodeId.next([reactId, nodeId]);
         }
     },
     {

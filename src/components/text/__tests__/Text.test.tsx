@@ -42,4 +42,34 @@ describe('<Text />', () => {
         const tree = renderer.create(<Text style={{ width: 200 }} />).toJSON();
         expect(tree).toMatchSnapshot();
     });
+
+    it('Text got full width when display: block', () => {
+        process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED = '1';
+        const tree = renderer.create(<Text style={{ display: 'block' } as any} />).toJSON();
+        expect(tree).toMatchSnapshot();
+        delete process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED;
+    });
+
+    it('Text got full width when display: block (wrapped to array)', () => {
+        process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED = '1';
+        const tree = renderer.create(<Text style={[{ display: 'block' } as any]} />).toJSON();
+        expect(tree).toMatchSnapshot();
+        delete process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED;
+    });
+
+    it('Text with hyperlink', () => {
+        const tree = renderer
+            .create(
+                <Text
+                    style={{ color: '#308eff' }}
+                    hyperlink={{
+                        type: 'URL',
+                        value: 'https://react-figma.dev/'
+                    }}>
+                    React Figma website
+                </Text>
+            )
+            .toJSON();
+        expect(tree).toMatchSnapshot();
+    });
 });

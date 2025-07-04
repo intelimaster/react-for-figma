@@ -10,6 +10,12 @@ import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
+import { uiApi } from '../rpc';
+import { safeGetPluginData } from '../helpers/safeGetPluginData';
+import { constraintsMixin } from '../mixins/constraintsMixin';
+import { DEFAULT_FONT } from '../helpers/constants';
+
+
 const textNodePropsAssign = propsAssign<TextProps, TextProps>(
     [
         'characters',
@@ -22,7 +28,9 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         'textCase',
         'textDecoration',
         'letterSpacing',
-        'lineHeight'
+        'lineHeight',
+        'textStyleId',
+        'hyperlink'
     ],
     {
         characters: '',
@@ -35,11 +43,12 @@ const textNodePropsAssign = propsAssign<TextProps, TextProps>(
         textCase: 'ORIGINAL',
         textDecoration: 'NONE',
         letterSpacing: { value: 0, unit: 'PIXELS' },
-        lineHeight: { unit: 'AUTO' }
+        lineHeight: { unit: 'AUTO' },
+        hyperlink: null
     }
 );
 
-const defaultFont = { family: 'Roboto', style: 'Regular' };
+const defaultFont = DEFAULT_FONT;
 
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName; hasDefinedWidth?: boolean }) => {
     const textNode = node || props.node || figma.createText();
@@ -51,6 +60,8 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
     sceneNodeMixin(textNode)(props);
+    constraintsMixin(textNode)(props);
+
 
     const { loadedFont, fontName = defaultFont } = props;
     if (
@@ -73,7 +84,16 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         } else {
             textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
         }
+
+        const oldCharacters = textNode.characters;
+        const oldFontSize = textNode.fontSize;
         textNodePropsAssign(textNode)(props);
+        if (oldCharacters !== textNode.characters || oldFontSize !== textNode.fontSize) {
+            const reactId = safeGetPluginData('reactId')(textNode);
+            if (reactId) {
+                uiApi.updateYogaNode(reactId);
+            }
+        }
     }
 
     return textNode;
