@@ -16,7 +16,9 @@ A React renderer for [Figma](https://www.figma.com). Use React components as a s
 * ⚙️ Built on [Figma Plugin API](https://www.figma.com/plugin-docs/intro/).
 * 🚫 **Is not a code generator**.
 
+
 <p align="center"><img src="https://user-images.githubusercontent.com/1270648/89524327-09365c80-d7ed-11ea-9cb1-08f6fd56a350.gif" width="800"></p>
+
 
 Example of code:
 
