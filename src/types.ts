@@ -1,7 +1,13 @@
 import * as React from 'react';
+import { LayoutStyleProperties } from './styleTransformers/transformLayoutStyleProperties';
+import { YogaStyleProperties } from './yoga/YogaStyleProperties';
+import { TextStyleProperties } from './styleTransformers/transformTextStyleProperties';
+import { BlendStyleProperties } from './styleTransformers/transformBlendProperties';
+import { GeometryStyleProperties } from './styleTransformers/transformGeometryStyleProperties';
+import { BorderStyleProperties } from './styleTransformers/transformBorderProperties';
 export type Color = string;
 
-export type StyleOf<T> = T | T[];
+export type StyleOf<T> = Partial<T> | Partial<T>[];
 
 export interface BaseNodeProps {
     name?: string;
@@ -13,6 +19,7 @@ export interface BaseNodeProps {
             [key: string]: string;
         };
     };
+    onNodeId?: (nodeId: string) => void;
 }
 
 export interface LayoutProps {
@@ -23,6 +30,8 @@ export interface LayoutProps {
     width?: number;
     height?: number;
     isWithoutConstraints?: boolean;
+    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH' | 'INHERIT';
+    layoutGrow?: number;
 }
 
 export interface ChildrenProps {
@@ -32,7 +41,7 @@ export interface ChildrenProps {
 export interface GeometryProps {
     fills?: ReadonlyArray<Paint> | symbol;
     strokes?: ReadonlyArray<Paint>;
-    strokeWeight?: number;
+    strokeWeight?: number | PluginAPI['mixed'];
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
     strokeCap?: StrokeCap | symbol;
     strokeJoin?: StrokeJoin | symbol;
@@ -43,6 +52,7 @@ export interface GeometryProps {
 
 export interface FrameProps {
     backgrounds?: ReadonlyArray<Paint>;
+    fillStyleId?: string | symbol;
 }
 
 export interface CornerProps {
@@ -65,7 +75,7 @@ export interface ExportProps {
 
 export interface BlendProps {
     opacity?: number;
-    blendMode?: BlendMode;
+    blendMode?: 'PASS_THROUGH' | BlendMode;
     isMask?: boolean;
     effects?: ReadonlyArray<Effect>;
     effectStyleId?: string;
@@ -81,11 +91,15 @@ export interface TextNodeProps {
     autoRename?: boolean;
 
     fontSize?: number | symbol;
-    fontName?: FontName | symbol;
+    fontName?: FontName;
     textCase?: TextCase | symbol;
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;
     lineHeight?: LineHeight | symbol;
+
+    textStyleId?: string;
+
+    hyperlink?: HyperlinkTarget;
 }
 
 export interface VectorNodeProps {
@@ -99,12 +113,97 @@ export interface StarNodeProps {
     innerRadius?: number;
 }
 
-export interface DefaultShapeProps extends BaseNodeProps, LayoutProps, GeometryProps, ExportProps, BlendProps {}
+export interface InstanceItemProps {
+    node?: any;
+    preventResizing?: boolean;
+}
+
+export interface SceneNodeProps {
+    visible?: boolean;
+    locked?: boolean;
+}
+
+export interface DefaultShapeProps
+    extends BaseNodeProps,
+        LayoutProps,
+
+        ConstraintsProps,
+        GeometryProps,
+        ExportProps,
+        BlendProps,
+        SceneNodeProps {}
 
 export interface DefaultContainerProps
     extends BaseNodeProps,
         ChildrenProps,
         LayoutProps,
+        ConstraintsProps,
         ExportProps,
         BlendProps,
-        FrameProps {}
+        FrameProps,
+        SceneNodeProps {}
+
+export type CommonStyle = LayoutStyleProperties &
+    YogaStyleProperties &
+    TextStyleProperties &
+    BlendStyleProperties &
+    GeometryStyleProperties &
+    BorderStyleProperties;
+
+export interface SelectionEventProps {
+    onSelectionEnter?: (() => void) | void;
+    onSelectionLeave?: (() => void) | void;
+}
+
+export interface ChangePageEventProps {
+    onCurrentChange?: (isCurrent: boolean) => void;
+}
+
+export interface ConstraintsProps {
+    constraints?: Constraints;
+}
+
+export interface AutoLayoutProps {
+    layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    primaryAxisSizingMode?: 'FIXED' | 'AUTO';
+    counterAxisSizingMode?: 'FIXED' | 'AUTO';
+
+    primaryAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER' | 'SPACE_BETWEEN';
+    counterAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER';
+
+    paddingLeft?: number;
+    paddingRight?: number;
+    paddingTop?: number;
+    paddingBottom?: number;
+
+    horizontalPadding?: number; // DEPRECATED
+    verticalPadding?: number; // DEPRECATED
+    itemSpacing?: number;
+}
+
+export interface FrameSpecificProps {
+    clipsContent?: boolean;
+    guides?: ReadonlyArray<Guide>;
+    layoutGrids?: ReadonlyArray<LayoutGrid>;
+    gridStyleId?: string;
+}
+
+export interface CommonStyleProps {
+    id?: string;
+    name?: string;
+    description?: string;
+}
+
+interface DocumentationLink {
+    readonly uri: string;
+}
+
+export interface PublishableProps {
+    description?: string;
+    documentationLinks?: ReadonlyArray<DocumentationLink>;
+}
+
+export interface HyperlinkTarget {
+    type: 'URL' | 'NODE';
+    value: string;
+}

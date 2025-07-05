@@ -1,5 +1,15 @@
 import * as React from 'react';
-import { DefaultContainerProps, StyleOf } from '../../types';
+import {
+    AutoLayoutProps,
+    BorderProps,
+    CornerProps,
+    DefaultContainerProps,
+    DefaultShapeProps,
+    FrameSpecificProps,
+    InstanceItemProps,
+    SelectionEventProps,
+    StyleOf
+} from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -12,6 +22,16 @@ import {
 } from '../../styleTransformers/transformGeometryStyleProperties';
 import { YogaStyleProperties } from '../../yoga/YogaStyleProperties';
 import { StyleSheet } from '../../helpers/StyleSheet';
+import { useSelectionChange } from '../../hooks/useSelectionChange';
+import {
+    BorderStyleProperties,
+    transformBorderStyleProperties
+} from '../../styleTransformers/transformBorderProperties';
+import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
+import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useImageHash } from '../../hooks/useImageHash';
+import { InheritStyleProvider } from '../../hooks/useInheritStyle';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 interface Preset {
     name: string;
@@ -187,25 +207,55 @@ export const FRAME_PRESETS = {
     }
 };
 
-export interface FrameNodeProps extends DefaultContainerProps {
-    style?: StyleOf<GeometryStyleProperties & YogaStyleProperties & LayoutStyleProperties & BlendStyleProperties>;
+export interface FrameNodeProps
+    extends DefaultShapeProps,
+        DefaultContainerProps,
+        InstanceItemProps,
+        SelectionEventProps,
+        AutoLayoutProps,
+        BorderProps,
+        CornerProps,
+        FrameSpecificProps,
+        OnLayoutHandlerProps {
+    style?: StyleOf<
+        GeometryStyleProperties &
+            YogaStyleProperties &
+            LayoutStyleProperties &
+            BlendStyleProperties &
+            BorderStyleProperties
+    >;
     preset?: Preset;
 }
 
-export const Frame: React.FC<FrameNodeProps> = props => {
+const Frame: React.FC<FrameNodeProps> = props => {
     const nodeRef = React.useRef();
 
-    const style = StyleSheet.flatten(props.style);
+    useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
+
+    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+
+    const imageHash = useImageHash(style.backgroundImage);
 
     const { preset, ...propWithoutPreset } = props;
     const frameProps = {
         ...(preset || {}),
         ...transformLayoutStyleProperties(style),
         ...transformBlendProperties(style),
-        ...transformGeometryStyleProperties('backgrounds', style),
-        ...propWithoutPreset
+        ...transformGeometryStyleProperties('backgrounds', style, imageHash),
+        ...transformBorderStyleProperties(style),
+        ...propWithoutPreset,
+        style
     };
     const yogaChildProps = useYogaLayout({ nodeRef, ...frameProps });
 
-    return <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />;
+    useOnLayoutHandler(yogaChildProps, props);
+
+    return (
+        <InheritStyleProvider style={style}>
+            <frame {...frameProps} {...yogaChildProps} innerRef={nodeRef} />
+        </InheritStyleProvider>
+    );
 };
+
+export { Frame };
