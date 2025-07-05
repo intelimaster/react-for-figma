@@ -1,22 +1,14 @@
 import { LayoutProps } from '../types';
+import { transformSize, TSize } from '../helpers/size';
 
-type TSize = number | string;
+export interface LayoutStyleProperties {
+    width: TSize;
+    height: TSize;
+    left: TSize;
+    top: TSize;
+}
 
-export type LayoutStyleProperties = {
-    width?: TSize;
-    height?: TSize;
-    left?: TSize;
-    top?: TSize;
-};
-
-const transformSize = (size: TSize): number => {
-    if (typeof size === 'number') {
-        return size;
-    }
-    return parseInt(size);
-};
-
-export const transformLayoutStyleProperties = (styles?: LayoutStyleProperties): LayoutProps => {
+export const transformLayoutStyleProperties = (styles?: Partial<LayoutStyleProperties>): LayoutProps => {
     if (!styles) {
         return {};
     }

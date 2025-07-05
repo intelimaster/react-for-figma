@@ -16,6 +16,10 @@ yarn.lock
 src
 test
 examples
+docs
+website
+_book
+.circleci
 .travis.yml
 .babelrc
 .gitignore
@@ -25,3 +29,5 @@ examples
 .idea
 .storybook
 demo.gif
+Summary.md
+book.json
