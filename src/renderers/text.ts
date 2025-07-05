@@ -9,6 +9,7 @@ import { blendMixin } from '../mixins/blendMixin';
 import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+
 import { uiApi } from '../rpc';
 import { safeGetPluginData } from '../helpers/safeGetPluginData';
 import { constraintsMixin } from '../mixins/constraintsMixin';

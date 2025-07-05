@@ -14,6 +14,7 @@ import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { constraintsMixin } from '../mixins/constraintsMixin';
 import { publishableMixin } from '../mixins/publishableMixin';
 
+
 export const component = (node: ComponentNode) => (props: ComponentProps) => {
     const componentNode = node || figma.createComponent();
 
@@ -27,6 +28,7 @@ export const component = (node: ComponentNode) => (props: ComponentProps) => {
     rectangleCornerMixin(componentNode)(props);
     constraintsMixin(componentNode)(props);
     autoLayoutMixin(componentNode)(props);
+    sceneNodeMixin(componentNode)(props);
 
     frameMixin(componentNode)(props);
     frameSpecificProps(componentNode)(props);

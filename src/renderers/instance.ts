@@ -7,6 +7,7 @@ import { autoLayoutMixin } from '../mixins/autoLayoutMixin';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 import { constraintsMixin } from '../mixins/constraintsMixin';
 
+
 export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     const instanceNode = node || props.component.createInstance();
 
@@ -21,6 +22,5 @@ export const instance = (node: InstanceNode) => (props: InstanceProps) => {
     if (props.detach) {
         instanceNode.detachInstance();
     }
-
     return instanceNode;
 };

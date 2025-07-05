@@ -9,6 +9,7 @@ import { blendMixin } from '../mixins/blendMixin';
 import { propsAssign } from '../helpers/propsAssign';
 import { VectorProps } from '../components/vector/Vector';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
+
 import { constraintsMixin } from '../mixins/constraintsMixin';
 
 const vectorNodePropsAssign = propsAssign<VectorProps, VectorProps>([
