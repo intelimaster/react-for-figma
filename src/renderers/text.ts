@@ -3,7 +3,6 @@ import { geometryMixin } from '../mixins/geometryMixin';
 import { layoutMixin } from '../mixins/layoutMixin';
 import { saveStyleMixin } from '../mixins/saveStyleMixin';
 import { propsAssign } from '../helpers/propsAssign';
-import { refMixin } from '../mixins/refMixin';
 import { exportMixin } from '../mixins/exportMixin';
 import { TextProps } from '../components/text/Text';
 import { blendMixin } from '../mixins/blendMixin';
@@ -11,27 +10,48 @@ import { isValidSize } from '../helpers/isValidSize';
 import { isEqualFontStyle } from '../helpers/isEqualFontStyle';
 import { sceneNodeMixin } from '../mixins/sceneNodeMixin';
 
-const textNodePropsAssign = propsAssign<TextProps>([
-    'characters',
-    'textAlignHorizontal',
-    'textAlignVertical',
-    'textAlignVertical',
-    'paragraphIndent',
-    'paragraphSpacing',
-    'autoRename',
-    'fontSize',
-    'textCase',
-    'textDecoration',
-    'letterSpacing',
-    'lineHeight'
-]);
+import { uiApi } from '../rpc';
+import { safeGetPluginData } from '../helpers/safeGetPluginData';
+import { constraintsMixin } from '../mixins/constraintsMixin';
+import { DEFAULT_FONT } from '../helpers/constants';
 
-const defaultFont = { family: 'Roboto', style: 'Regular' };
+const textNodePropsAssign = propsAssign<TextProps, TextProps>(
+    [
+        'characters',
+        'textAlignHorizontal',
+        'textAlignVertical',
+        'paragraphIndent',
+        'paragraphSpacing',
+        'autoRename',
+        'fontSize',
+        'textCase',
+        'textDecoration',
+        'letterSpacing',
+        'lineHeight',
+        'textStyleId',
+        'hyperlink'
+    ],
+    {
+        characters: '',
+        textAlignHorizontal: 'LEFT',
+        textAlignVertical: 'TOP',
+        paragraphIndent: 0,
+        paragraphSpacing: 0,
+        autoRename: false,
+        fontSize: 12,
+        textCase: 'ORIGINAL',
+        textDecoration: 'NONE',
+        letterSpacing: { value: 0, unit: 'PIXELS' },
+        lineHeight: { unit: 'AUTO' },
+        hyperlink: null
+    }
+);
+
+const defaultFont = DEFAULT_FONT;
 
 export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontName; hasDefinedWidth?: boolean }) => {
     const textNode = node || props.node || figma.createText();
 
-    refMixin(textNode)(props);
     baseNodeMixin(textNode)(props);
     saveStyleMixin(textNode)(props);
     layoutMixin(textNode)(props);
@@ -39,6 +59,7 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
     exportMixin(textNode)(props);
     blendMixin(textNode)(props);
     sceneNodeMixin(textNode)(props);
+    constraintsMixin(textNode)(props);
 
     const { loadedFont, fontName = defaultFont } = props;
     if (
@@ -61,7 +82,16 @@ export const text = (node: TextNode) => (props: TextProps & { loadedFont?: FontN
         } else {
             textNode.textAutoResize = props.textAutoResize || 'WIDTH_AND_HEIGHT';
         }
+
+        const oldCharacters = textNode.characters;
+        const oldFontSize = textNode.fontSize;
         textNodePropsAssign(textNode)(props);
+        if (oldCharacters !== textNode.characters || oldFontSize !== textNode.fontSize) {
+            const reactId = safeGetPluginData('reactId')(textNode);
+            if (reactId) {
+                uiApi.updateYogaNode(reactId);
+            }
+        }
     }
 
     return textNode;

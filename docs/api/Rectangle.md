@@ -17,6 +17,8 @@ Wrapper for the Figma [Rectangle](https://www.figma.com/plugin-docs/api/Rectangl
 | `style`    | [`Style`](/docs/styling)   |  | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
 
 Also, most of the [RectangleNode](https://www.figma.com/plugin-docs/api/RectangleNode/) fields are supported as props.
 
