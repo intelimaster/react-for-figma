@@ -103,6 +103,150 @@
       "contributions": [
         "code"
       ]
+    },
+    {
+      "login": "reime005",
+      "name": "Marius Reimer",
+      "avatar_url": "https://avatars3.githubusercontent.com/u/15148377?v=4",
+      "profile": "https://mariusreimer.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "szeko",
+      "name": "szeko",
+      "avatar_url": "https://avatars1.githubusercontent.com/u/5523724?v=4",
+      "profile": "http://szeko.com.au",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "yoniholmes",
+      "name": "Jonathan Holmes",
+      "avatar_url": "https://avatars.githubusercontent.com/u/184589?v=4",
+      "profile": "https://github.com/yoniholmes",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "headwindz",
+      "name": "headwindz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/7504237?v=4",
+      "profile": "https://github.com/headwindz",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "kant",
+      "name": "Darío Hereñú",
+      "avatar_url": "https://avatars.githubusercontent.com/u/32717?v=4",
+      "profile": "https://github.com/kant",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "KonstHardy",
+      "name": "Konstantin Popov",
+      "avatar_url": "https://avatars.githubusercontent.com/u/46906648?v=4",
+      "profile": "https://github.com/KonstHardy",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "Utkarsh299-tech",
+      "name": "Utkarsh Singh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/60184229?v=4",
+      "profile": "https://utkarsh299-tech.github.io/myportfolio/",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mrkenneh",
+      "name": "mrkenneh",
+      "avatar_url": "https://avatars.githubusercontent.com/u/96268806?v=4",
+      "profile": "https://github.com/mrkenneh",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "annuhdo",
+      "name": "Anna Do",
+      "avatar_url": "https://avatars.githubusercontent.com/u/6846913?v=4",
+      "profile": "https://github.com/annuhdo",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "stevenpetryk",
+      "name": "Steven Petryk",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1724000?v=4",
+      "profile": "http://stevenpetryk.com",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "thierryc",
+      "name": "Thierry Charbonnel",
+      "avatar_url": "https://avatars.githubusercontent.com/u/197471?v=4",
+      "profile": "http://www.anotherplanet.io",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "jackoliver",
+      "name": "Jack Oliver",
+      "avatar_url": "https://avatars.githubusercontent.com/u/1788455?v=4",
+      "profile": "https://jv-la.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "msabramo",
+      "name": "Marc Abramowitz",
+      "avatar_url": "https://avatars.githubusercontent.com/u/305268?v=4",
+      "profile": "http://marc-abramowitz.com",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "fishtriangle",
+      "name": "fishtriangle",
+      "avatar_url": "https://avatars.githubusercontent.com/u/66234622?v=4",
+      "profile": "https://github.com/fishtriangle",
+      "contributions": [
+        "code"
+      ]
+    },
+    {
+      "login": "carlostpg",
+      "name": "Carlos",
+      "avatar_url": "https://avatars.githubusercontent.com/u/124635572?v=4",
+      "profile": "https://github.com/carlostpg",
+      "contributions": [
+        "doc"
+      ]
+    },
+    {
+      "login": "mraghuram3",
+      "name": "Raghu Ram M",
+      "avatar_url": "https://avatars.githubusercontent.com/u/19218859?v=4",
+      "profile": "https://mraghuram3.github.io/",
+      "contributions": [
+        "doc"
+      ]
     }
   ],
   "contributorsPerLine": 7,
@@ -110,5 +254,7 @@
   "projectOwner": "react-figma",
   "repoType": "github",
   "repoHost": "https://github.com",
-  "skipCi": true
+  "skipCi": true,
+  "commitConvention": "angular",
+  "commitType": "docs"
 }

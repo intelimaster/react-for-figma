@@ -1,10 +1,17 @@
-import * as nanoid from 'nanoid/non-secure';
+import * as React from 'react';
+import { nanoid } from 'nanoid/non-secure';
 
 import * as createReconciler from 'react-reconciler';
 
 import { setTextChildren } from './hooks/useTextChildren';
 import { api } from './rpc';
 import { serializeProps } from './serializers';
+
+const isReactFigmaExperimental = process.env.REACT_FIGMA_EXPERIMENTAL;
+
+if (isReactFigmaExperimental) {
+    console.log('REACT_FIGMA_EXPERIMENTAL');
+}
 
 const setTextInstance = (parentNode, childNode) => {
     childNode.parent = parentNode;
@@ -79,7 +86,7 @@ const renderInstance = (type, node, props) => {
     return result;
 };
 
-export const render = async (jsx: any) => {
+export const render = async (jsx: React.ReactElement) => {
     const rootNode = await api.getInitialTree();
     prepareToHydration(rootNode, undefined);
 

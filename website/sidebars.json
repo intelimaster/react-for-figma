@@ -1,11 +1,12 @@
 {
   "docs": {
     "Getting Started": ["installation", "configure", "running", "hmr", "devtools"],
-    "Docs": ["API","architecture", "roadmap"],
+    "Docs": ["API","architecture", "ecosystem", "roadmap"],
     "API": [
       "api/render",
       "styling",
       "colors",
+      "local-styles",
       "data-fetching",
       {
         "type": "category",
@@ -31,7 +32,18 @@
           "api/line",
           "api/rectangle",
           "api/star",
-          "api/vector"
+          "api/vector",
+          "api/slice"
+        ]
+      },
+      {
+        "type": "category",
+        "label": "React Native compatibility",
+        "items": [
+          "api/Dimensions",
+          "api/Easing",
+          "api/useWindowDimensions",
+          "api/StatusBar"
         ]
       }
     ]

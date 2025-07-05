@@ -19,6 +19,7 @@ export interface BaseNodeProps {
             [key: string]: string;
         };
     };
+    onNodeId?: (nodeId: string) => void;
 }
 
 export interface LayoutProps {
@@ -29,7 +30,8 @@ export interface LayoutProps {
     width?: number;
     height?: number;
     isWithoutConstraints?: boolean;
-    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH';
+    layoutAlign?: 'MIN' | 'CENTER' | 'MAX' | 'STRETCH' | 'INHERIT';
+    layoutGrow?: number;
 }
 
 export interface ChildrenProps {
@@ -39,7 +41,7 @@ export interface ChildrenProps {
 export interface GeometryProps {
     fills?: ReadonlyArray<Paint> | symbol;
     strokes?: ReadonlyArray<Paint>;
-    strokeWeight?: number;
+    strokeWeight?: number | PluginAPI['mixed'];
     strokeAlign?: 'CENTER' | 'INSIDE' | 'OUTSIDE';
     strokeCap?: StrokeCap | symbol;
     strokeJoin?: StrokeJoin | symbol;
@@ -50,6 +52,7 @@ export interface GeometryProps {
 
 export interface FrameProps {
     backgrounds?: ReadonlyArray<Paint>;
+    fillStyleId?: string | symbol;
 }
 
 export interface CornerProps {
@@ -72,7 +75,7 @@ export interface ExportProps {
 
 export interface BlendProps {
     opacity?: number;
-    blendMode?: BlendMode;
+    blendMode?: 'PASS_THROUGH' | BlendMode;
     isMask?: boolean;
     effects?: ReadonlyArray<Effect>;
     effectStyleId?: string;
@@ -93,6 +96,10 @@ export interface TextNodeProps {
     textDecoration?: TextDecoration | symbol;
     letterSpacing?: LetterSpacing | symbol;
     lineHeight?: LineHeight | symbol;
+
+    textStyleId?: string;
+
+    hyperlink?: HyperlinkTarget;
 }
 
 export interface VectorNodeProps {
@@ -119,6 +126,8 @@ export interface SceneNodeProps {
 export interface DefaultShapeProps
     extends BaseNodeProps,
         LayoutProps,
+
+        ConstraintsProps,
         GeometryProps,
         ExportProps,
         BlendProps,
@@ -128,6 +137,7 @@ export interface DefaultContainerProps
     extends BaseNodeProps,
         ChildrenProps,
         LayoutProps,
+        ConstraintsProps,
         ExportProps,
         BlendProps,
         FrameProps,
@@ -149,13 +159,26 @@ export interface ChangePageEventProps {
     onCurrentChange?: (isCurrent: boolean) => void;
 }
 
+export interface ConstraintsProps {
+    constraints?: Constraints;
+}
+
 export interface AutoLayoutProps {
     layoutMode?: 'NONE' | 'HORIZONTAL' | 'VERTICAL';
+    primaryAxisSizingMode?: 'FIXED' | 'AUTO';
     counterAxisSizingMode?: 'FIXED' | 'AUTO';
-    horizontalPadding?: number;
-    verticalPadding?: number;
+
+    primaryAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER' | 'SPACE_BETWEEN';
+    counterAxisAlignItems?: 'MIN' | 'MAX' | 'CENTER';
+
+    paddingLeft?: number;
+    paddingRight?: number;
+    paddingTop?: number;
+    paddingBottom?: number;
+
+    horizontalPadding?: number; // DEPRECATED
+    verticalPadding?: number; // DEPRECATED
     itemSpacing?: number;
-    constraints?: Constraints;
 }
 
 export interface FrameSpecificProps {
@@ -163,4 +186,24 @@ export interface FrameSpecificProps {
     guides?: ReadonlyArray<Guide>;
     layoutGrids?: ReadonlyArray<LayoutGrid>;
     gridStyleId?: string;
+}
+
+export interface CommonStyleProps {
+    id?: string;
+    name?: string;
+    description?: string;
+}
+
+interface DocumentationLink {
+    readonly uri: string;
+}
+
+export interface PublishableProps {
+    description?: string;
+    documentationLinks?: ReadonlyArray<DocumentationLink>;
+}
+
+export interface HyperlinkTarget {
+    type: 'URL' | 'NODE';
+    value: string;
 }

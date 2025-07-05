@@ -1,12 +1,5 @@
 import * as React from 'react';
-import {
-    CornerProps,
-    DefaultShapeProps,
-    InstanceItemProps,
-    SelectionEventProps,
-    StyleOf,
-    TextNodeProps
-} from '../../types';
+import { DefaultShapeProps, InstanceItemProps, SelectionEventProps, StyleOf, TextNodeProps } from '../../types';
 import {
     LayoutStyleProperties,
     transformLayoutStyleProperties
@@ -24,6 +17,8 @@ import { useTextChildren } from '../../hooks/useTextChildren';
 import { useSelectionChange } from '../../hooks/useSelectionChange';
 import { transformAutoLayoutToYoga } from '../../styleTransformers/transformAutoLayoutToYoga';
 import { OnLayoutHandlerProps, useOnLayoutHandler } from '../../hooks/useOnLayoutHandler';
+import { useInheritStyle } from '../../hooks/useInheritStyle';
+import { useNodeIdCallback } from '../../hooks/useNodeIdCallback';
 
 export interface TextProps
     extends TextNodeProps,
@@ -45,8 +40,20 @@ const Text: React.FC<TextProps> = props => {
     const nodeRef = React.useRef();
 
     useSelectionChange(nodeRef, props);
+    useNodeIdCallback(nodeRef, props.onNodeId);
+    const inheritedStyle = useInheritStyle();
+    const flattenOriginalStyle = StyleSheet.flatten(props.style);
 
-    const style = { ...StyleSheet.flatten(props.style), ...transformAutoLayoutToYoga(props) };
+    const style = {
+        ...(process.env.REACT_FIGMA_STYLE_INHERITANCE_ENABLED ? inheritedStyle : {}),
+        ...(process.env.REACT_FIGMA_WEB_DEFAULTS_ENABLED &&
+        props.style &&
+        (flattenOriginalStyle as any).display === 'block'
+            ? { minWidth: '100%' }
+            : {}),
+        ...StyleSheet.flatten(flattenOriginalStyle),
+        ...transformAutoLayoutToYoga(props)
+    };
     const children = normalizeTextNodeChidren(props.children);
 
     const charactersByChildren = useTextChildren(nodeRef);
@@ -57,12 +64,14 @@ const Text: React.FC<TextProps> = props => {
         ...transformBlendProperties(style),
         ...props,
         characters: charactersByChildren || props.characters,
+        ...(style && style.textStyleId ? { textStyleId: style.textStyleId } : {}),
+        ...(style && style.fillStyleId ? { fillStyleId: style.fillStyleId } : {}),
         style,
         children
     };
     const hasDefinedWidth = textProps.width || style.maxWidth;
-    const loadedFont = useFontName(textProps.fontName || { family: 'Roboto', style: 'Regular' });
-    const yogaProps = useYogaLayout({ nodeRef, ...textProps });
+    const loadedFont = useFontName(textProps.fontName);
+    const yogaProps = useYogaLayout({ nodeRef, ...textProps, loadedFont });
     useOnLayoutHandler(yogaProps, props);
 
     return (

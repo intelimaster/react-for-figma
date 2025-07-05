@@ -3,6 +3,8 @@ id: component
 title: Component, Instance, createComponent
 ---
 
+## Component
+
 Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/ComponentNode/).
 
 #### Props
@@ -15,6 +17,9 @@ Wrapper for the Figma [Component](https://www.figma.com/plugin-docs/api/Componen
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
 | `onLayout` | `Function` |  | Event is fired once the layout has been calculated  |
+| `onNodeId` | `Fuction` | | Getting Figma Node ID callback |  
+| `description` | `String` | | The annotation entered by the user for this component |
+| `documentationLinks` | [`ReadonlyArray<DocumentationLink>`](https://www.figma.com/plugin-docs/api/DocumentationLink/) | | The documentation links for this component |
 
 Also, most of the [ComponentNode](https://www.figma.com/plugin-docs/api/ComponentNode/) fields are supported as props.
 
@@ -32,6 +37,7 @@ Wrapper for the `component.createInstance` method.
 | `style`    | [`Style`](/docs/styling)   |         | Not all props |
 | `onSelectionEnter` | `Function` |  | Selection enter event callback  |
 | `onSelectionLeave` | `Function` |  | Selection leave event callback  |
+| `detach` | boolean | | Detach instance |
 
 ## createComponent
 
@@ -43,6 +49,20 @@ Factory method for creating linked Component and Instance. Returns
     Instance: React.Component // with `component` prop defined
 }
 ```
+
+## ComponentSet
+
+Wrapper for the Figma [ComponentSet](https://www.figma.com/plugin-docs/api/ComponentSetNode/). It allows defining component variants.
+
+#### Props
+
+| Prop       | Type     | Default | Note                                              |
+| ---------- | -------- | ------- | ------------------------------------------------- |
+| `name`     | `String` |         | The name to be displayed in the Figma Layers List |
+| `children` | `Node`   |         | Only `Component` nodes                            |
+| `style`    | [`Style`](/docs/styling)   |         | Not all props                   |
+| `description` | `String` | | The annotation entered by the user for this component |
+| `documentationLinks` | [`ReadonlyArray<DocumentationLink>`](https://www.figma.com/plugin-docs/api/DocumentationLink/) | | The documentation links for this component |
 
 ## Examples
 
@@ -76,7 +96,7 @@ const Rect = createComponent();
 </>
 ```
 
-### Overriding elements inside instance
+#### Overriding elements inside instance
 
 ```jsx
 const Rect = createComponent();
@@ -122,5 +142,21 @@ const Txt = createComponent();
         }
     }}
 />
+```
+
+#### Using variants
+
+```jsx
+<ComponentSet name="Button">
+    <Component name="variant=Primary">
+        <PrimaryButton text="Primary" />
+    </Component>
+    <Component name="variant=Dangerous">
+        <DangerousButton text="Dangerous" />
+    </Component>
+    <Component name="variant=Secondary">
+        <SecondaryButton text="Secondary" />
+    </Component>
+</ComponentSet>
 ```
 
